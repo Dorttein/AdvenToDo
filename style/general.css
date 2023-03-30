@@ -100,14 +100,14 @@ a:hover {
 }
 
 .home_is_visible .home {
-  color: white;
+  color: #f5f0f0;
   background: #002961;
 }
 .home_is_visible .button .fa {
-  color: white;
+  color: #f5f0f0;
 }
 .home_is_visible a {
-  color: white;
+  color: #f5f0f0;
 }
 
 .aboutus_is_visible .aboutus {
@@ -122,14 +122,14 @@ a:hover {
 }
 
 .clients_is_visible .clients {
-  color: white;
+  color: #f5f0f0;
   background: darkgoldenrod;
 }
 .clients_is_visible .button .fa {
-  color: white;
+  color: #f5f0f0;
 }
 .clients_is_visible a {
-  color: white;
+  color: #f5f0f0;
 }
 
 .contactus_is_visible .contactus {
@@ -150,10 +150,100 @@ body.nav_is_visible .menu {
   transform: translateX(-100%);
 }
 
-/* menu extra */
-#id_li_login, #id_li_passwd, #id_li_button{
-  text-align: center;
+/* Formulario Login */
+#id_li_form{
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.group{
+  margin-left: 30%;
+  position: relative;
+}
+.input{
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 185px;
+  border: none;
+  border-bottom: 1px solid #6c6c6c;
+  background: transparent;
+  color: #f5f0f0;
+}
+.input:focus{
+  outline:none;
+}
+label{
+  color: #f5f0f0;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.input:focus ~ label, .input:valid ~ label{
+  top: -20px;
+  font-size: 14px;
+  color: #0e94f4;
+}
+.bar{
+  position: relative;
+  display: block;
+  width: 200px;
+}
+.bar:before, .bar:after{
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #0e94f4;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before{
+left: 50%;
+} 
+.bar:after{
+right: 50%;
+}
+.input:focus ~ .bar:before, .input:focus ~ .bar:after{
+  width: 50%;
+}
+.highlight{
+  position: absolute;
+  height: 60%;
+  width: 0px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.input:focus ~ .highlight{
+  animation: input-focus 0.5s ease;
+}
+@keyframes input-focus{
+  from{
+    background: #1486d7;
+  }
+  to{
+    width: 185px;
+    background: transparent;
+  }
+}
+
+/* 
+ ? https://freefrontend.com/css-buttons/ Botones generales
+ ? https://codepen.io/josetxu/pen/RwjMNzx Posible boton de importante
+ ? https://codepen.io/thebabydino/pen/bGrLprB
+*/
+
 
 
 
