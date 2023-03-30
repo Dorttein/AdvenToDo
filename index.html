@@ -28,14 +28,20 @@
             <li>
               <a href='contactus_is_visible'>Contact Us</a>
             </li>
-            <form action="post">
-            <li>
-                <label for="label_login">Login</label><br>
-                <input type="text">
-            </li>
-            <li>
-                <input type="text" name="" id="">
-            </li>
+            <form action="post" id="id_form_login">
+                <li id="id_li_login">
+                    <label for="label_login">Login</label><br>
+                    <input type="text" name="Login_Text" id="id_login" placeholder="Login">
+                </li>
+                <li id="id_li_passwd">
+                    <label for="label_passwd">Password</label><br>
+                    <input type="text" name="Password_text" id="id_password" placeholder="Password">
+                </li>
+                <li id="id_li_button">
+                  <br/>
+                    <input type="button" name="login" id="id_button_login" value="Login">
+                </li>
+                
             </form>
 
 
