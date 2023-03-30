@@ -150,9 +150,17 @@ body.nav_is_visible .menu {
   transform: translateX(-100%);
 }
 
+/* menu extra */
+#id_li_login, #id_li_passwd, #id_li_button{
+  text-align: center;
+}
+
+
+
+
 /*  HEADER  */
 header{
-    text-align: center; 
+    text-align: right; 
     /*TODO: texto alineado al centro en grande*/
     /*TODO: ocultar texto al abrir el menu en tablet y movil*/
     /*TODO: */
