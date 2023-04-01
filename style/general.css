@@ -8,7 +8,7 @@
 	*{
 		box-sizing: border-box;
 	}
-	.button {
+	.button { /* BOTON PARA ABRIR EL MENÚ */
 		position: absolute;
 		top: 10px;
 		left: 10px;
@@ -21,10 +21,10 @@
 	html {
 		overflow-x: hidden;
 	}
-	body {
+	body { /* BODY GENERAL */
 		color: #f5f0f0;
 		position: relative;
-		background-image: url(/photo/143276-el_espacio_exterior-negro-constelacion-via_lactea-objeto_astronomico-x750.jpg);
+		background-image: url(/photo/fondoProvisional.jpg);
 		transform: translateX(0);
 		transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	}
@@ -39,25 +39,27 @@
 		transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		transition-delay: 0.2s;
 	}
-	.content {
+	.content { /* CLASE PARA TODOS LOS BLOQUES */
 		position: absolute;
 		margin: 0 auto;
 		padding: 30px 20%;
 		font-size: 18px;
-		transform: translateX(100%);
+		transform: translateX(120%); /* CON ESTO ME ASEGURO QUE SE ALEJAN LAS PANTALLAS QUE NO USO */
 		transition: color 1s ease 1s, background 0.5s ease 1s, transform 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+		background: #002961;
+		width: 100%;
 	}
-	.menu ul {
+	.menu ul { /* LISTA ENTERA */
 		margin: 0;
 		padding: 30px 0;
 		list-style: none;
 	}
-	.menu ul li {
+	.menu ul li { /* CADA UNO DE LA LISTA */
 		margin: 0;
 		margin-bottom: 5%;
 		padding: 0;
 	}
-	.menu a {
+	.menu a { /* ENLACES DENTRO DE LAS LISTAS */
 		text-decoration: none;
 		display: block;
 		padding: 10px 20px;
@@ -65,6 +67,7 @@
 		color: #f5f0f0;
 	}
 	.menu a:hover {
+		color: black;
 		background: #9DC2F6;
 	}
 	.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home {
@@ -73,19 +76,21 @@
 	.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home {
 		z-index: 5000;
 	}
+	/* ? ACCESO A LOS BLOQUES INDIVIDUALES
 	.home_is_visible .home {
-		background: #002961;
+		background-color: #002961;
 	}
 	.clients_is_visible .clients {
-		background: #002961;
+		background-color: antiquewhite;
 	}
 	.aboutus_is_visible .aboutus{
-		background: #002961;
+		background-color:brown;
 	}
 	.contactus_is_visible .contactus {
-		background: #002961;
-	}
-	body.nav_is_visible {
+		background-color: cornflowerblue;
+	} 
+	*/
+	body.nav_is_visible { /* ANIMACIÓN DE ABRIR EL MENÚ */
 		transform: translateX(300px);
 	}
 	body.nav_is_visible .menu {
@@ -93,134 +98,135 @@
 	}
 
 
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Formulario Login */
-#id_li_form{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.group{
-  margin-left: 30%;
-  position: relative;
-}
-.input{
-  font-size: 16px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 185px;
-  border: none;
-  border-bottom: 1px solid #6c6c6c;
-  background: transparent;
-  color: #f5f0f0;
-}
-.input:focus{
-  outline:none;
-}
-label{
-  color: #f5f0f0;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-.input:focus ~ label, .input:valid ~ label{
-  top: -20px;
-  font-size: 14px;
-  color: #0e94f4;
-}
-.bar{
-  position: relative;
-  display: block;
-  width: 185px;
-}
-.bar:before, .bar:after{
-  content: "";
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #0e94f4;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-.bar:before{
-left: 50%;
-} 
-.bar:after{
-right: 50%;
-}
-.input:focus ~ .bar:before, .input:focus ~ .bar:after{
-  width: 50%;
-}
-.highlight{
-  position: absolute;
-  height: 60%;
-  width: 0px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-.input:focus ~ .highlight{
-  animation: input-focus 0.5s ease;
-}
-@keyframes input-focus{
-  from{
-    background: #1486d7;
+#id_li_form{ /* CONTENEDOR DEL FORM */
+	display:flex;
+	align-items: center;
+	justify-content: center;
   }
-  to{
-    width: 185px;
-    background: transparent;
+  .group{ /* CONTENEDOR DE CADA INPUT */
+	margin-left: 5%;
+	position: relative;
   }
-}
+  .input{ /* CLASE PARA LOS INPUTS */
+	font-size: 16px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 185px;
+	border: none;
+	border-bottom: 1px solid #6c6c6c;
+	background: transparent;
+	color: #f5f0f0;
+  }
+  .input:focus{
+	outline:none;
+  }
+  .lab_login{ /* TITULO DE LOS INPUT */
+	color: #f5f0f0;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+  }
+  .input:focus ~ .lab_login, .input:valid ~ .lab_login{
+	top: -20px;
+	font-size: 14px;
+	color: #0e94f4;
+  }
+  .bar{ /* BARRA AZUL */
+	position: relative;
+	display: block;
+	width: 185px;
+  }
+  .bar:before, .bar:after{
+	content: "";
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: #0e94f4;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+  }
+  .bar:before{
+  left: 50%;
+  } 
+  .bar:after{
+  right: 50%;
+  }
+  .input:focus ~ .bar:before, .input:focus ~ .bar:after{
+	width: 50%;
+  }
+  .highlight{
+	position: absolute;
+	height: 60%;
+	width: 0px;
+	top: 25%;
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+  }
+  .input:focus ~ .highlight{
+	animation: input-focus 0.5s ease;
+  }
+  @keyframes input-focus{
+	from{
+	  background: #1486d7;
+	}
+	to{
+	  width: 185px;
+	  background: transparent;
+	}
+  }
+  
+  /* BOTON DE LOGIN */
+  #id_btn_login{
+	display: inline-block;
+	position: relative;
+	color: #0A0046;
+	background: white;
+	font-family: inherit;
+	font-weight: 500;
+	font-size: 17px;
+	padding: 16px 24px;
+	margin: 10px 0 0 10px;
+	border: 2px solid #0A0046;
+	border-radius: 8px;
+	z-index: 1;
+	overflow: hidden;
+  }
+  #id_btn_login:before{
+	content: "";
+	position: absolute;
+	background: #0A0046;
+	height: 150px;
+	width: 200px;
+	border-radius: 50%;
+	z-index: -1;
+	top: 100%;	
+	left: 100%;
+	transition: 1s;	
+  }
+  #id_btn_login:hover{
+	color: white;
+	transition: 0.7s;
+  }
+  #id_btn_login:hover:before{
+	top: -30px;
+	left: -30px;
+  }
 
-/* 
- ? https://freefrontend.com/css-buttons/ Botones generales
- ? https://codepen.io/josetxu/pen/RwjMNzx Posible boton de importante
- ? https://codepen.io/thebabydino/pen/bGrLprB
-*/
-
-
-
+  /* 
+   ? https://freefrontend.com/css-buttons/ Botones generales
+   ? https://codepen.io/josetxu/pen/RwjMNzx Posible boton de importante
+   ? https://codepen.io/thebabydino/pen/bGrLprB
+  */
 
 
 /*  HEADER  */
@@ -235,8 +241,18 @@ header{
 
 
 
-
-
-
-
-
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	header{
+		text-align: left;
+		margin-left: 20%;
+	}
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

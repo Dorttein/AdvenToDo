@@ -1,3 +1,5 @@
+import {Tarea, Personaje} from '../models/objetos.js';
+
 $(document).ready(function () {
     $("body").addClass("home_is_visible");
 
@@ -18,6 +20,15 @@ $(document).ready(function () {
     $("body").addClass(link);
     $("body").removeClass("nav_is_visible");
     });
+
+    let tarea= new Tarea(1,2,3,4,5,6,7,8,9,10,11);
+    console.log(tarea.get_ID);
+
+    let personaje = new Personaje("Nombre");
+
+    console.log(personaje.nombre);
+
+
 });
 
 // este codigo es de prueba

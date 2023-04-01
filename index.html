@@ -7,7 +7,7 @@
     <title>AdvenToDo</title>
     <link rel="stylesheet" href="style/general.css">
     <script src="JS/jquery-3.6.3.js"></script>
-    <script src="JS/header.js"></script>
+    <script src="JS/header.js" type="module"></script>
 </head>
 <body>
     <div class='button'>
@@ -17,13 +17,13 @@
         <nav>
           <ul>
             <li>
-              	<a href='home_is_visible'>Home</a>
+              	<a href='home_is_visible'>Tareas</a>
             </li>
             <li>
-            	<a href='aboutus_is_visible'>Prueba1</a>
+            	<a href='aboutus_is_visible'>Juego</a>
             </li>
             <li>
-              	<a href='clients_is_visible'>Prueba2</a>
+              	<a href='clients_is_visible'>Objetos</a>
             </li>
             <li>
               	<a href='contactus_is_visible'>Prueba3</a>
@@ -35,7 +35,7 @@
 						<input type="text" class="input" required="true" id="id_login">
 						<span class="hightlight"></span>
 						<span class="bar"></span>
-						<label>Login</label>
+						<label class="lab_login">Login</label>
 					</div>
 					<br>
 					<br>
@@ -43,14 +43,11 @@
 						<input type="text" class="input" required="true" id="id_passwd">
 						<span class="hightlight"></span>
 						<span class="bar"></span>
-						<label>Password</label>
-					</div>
-					<br>
-                    <input type="button" name="login" id="id_button_login" value="Login">
+						<label class="lab_login">Password</label>
+					</div><br>
+                    <button id="id_btn_login">LOGIN</button>
 				</form>
 			</li>
-
-
           </ul>
         </nav>
       </div>
@@ -61,40 +58,49 @@
       
       
       
-      
-      
-      <div class='content home'>
-        <h1>OffCanvas Nav</h1>
+    <div class='content home'>
+		<section>
+			<h1>Tareas</h1>
+			<article>
+				<input type="checkbox" name="completada" id="id_ck_compl">
+				<title>Nombre</title>
+				<div>Subtareas</div>
+				<div>Fecha Límite</div>
+				<div>Repetir</div>
+				<div>Importante</div>
+			</article>
+
+
+
+
+		</section>
+
+
+    </div>
+    <div class='content aboutus'>
+        <h1>Juego</h1>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-      </div>
-      <div class='content aboutus'>
-        <h1>About Us</h1>
+    </div>
+    <div class='content clients'>
+        <h1>Objetos</h1>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-      </div>
-      <div class='content clients'>
-        <h1>Clients</h1>
+    </div>
+    <div class='content contactus'>
+        <h1>Registrarse</h1>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-      </div>
-      <div class='content contactus'>
-        <h1>Contact Us</h1>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-      </div>
+    </div>
 
 </body>
 </html>
