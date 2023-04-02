@@ -11,7 +11,10 @@
 </head>
 <body>
     <div class='button'>
-        <div class='fa'>|||</div>
+        <div href="#" class="menu-icon">
+			<input type="checkbox" id="cbox" value="null">
+			<span data-state="default"></span>
+		</div>
     </div>
       <div class='menu'>
         <nav>
@@ -58,25 +61,52 @@
       
       
       
-    <div class='content home'>
-		<section>
+    <div class='content home'> <!-- ESTE DIV CONTIENE TODAS LAS LISTAS. AL ABRIR UNA LISTA SE ABRE OTRO DIV CON SUS TAREAS -->
+		<section id="contenedorListas">
 			<h1>Tareas</h1>
-			<article>
-				<input type="checkbox" name="completada" id="id_ck_compl">
-				<title>Nombre</title>
-				<div>Subtareas</div>
-				<div>Fecha Límite</div>
-				<div>Repetir</div>
-				<div>Importante</div>
-			</article>
-
+      <!-- https://www.youtube.com/watch?v=7sVoukMGJwE&ab_channel=MagtimusPro   TARJETAS PARA LAS TAREAS   -->
+			<div class="listas" id="id_today">
+				<div class="icon icon-enter"><div class="arrow"></div></div>
+				<div>TODAY</div>
+				<div>0</div>
+				<div>FECHA</div>
+			</div>
+			<div class="listas">
+				<div class="icon icon-enter"><div class="arrow"></div></div>
+				<div>Lista de Prueba</div>
+				<div>5</div>
+				<div>|||</div>
+			</div>
+			<div class="listas">
+				<div class="icon icon-enter"><div class="arrow"></div></div>
+				<div>Lista de Prueba</div>
+				<div>15</div>
+				<div>|||</div>
+			</div>
 
 
 
 		</section>
-
-
     </div>
+
+	<div class="content">
+		<section>
+			<article>
+				<input type="checkbox" name="completada" id="id_ck_compl">
+				<div>Nombre</div>
+				<div>Detalles</div>
+				<div>Subtareas</div>
+				<div>Fecha Límite</div>
+				<div>Repetir</div>
+				<input type="checkbox" name="importante" id="id_ck_imp">
+			</article>
+		</section>
+
+	</div>
+
+
+
+
     <div class='content aboutus'>
         <h1>Juego</h1>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>

@@ -1,4 +1,6 @@
-export class Tarea {
+//TODAS LAS CLASES QUE SE USARÁN EN EL PROYECTO
+
+export class Tarea {    // CLASE TAREA
     constructor (ID, nombre, detail, completed, subtarea, initial_date, limit_date, again, important, ID_user, ID_lista) {
       this.ID = ID;
       this.nombre = nombre;
@@ -40,8 +42,3 @@ export class Tarea {
 
 }
 
-export class Personaje{
-    constructor(nombre){
-        this.nombre=nombre;
-    }
-}

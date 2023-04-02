@@ -8,16 +8,6 @@
 		*{
 			box-sizing: border-box;
 		}
-		.button { /* BOTON PARA ABRIR EL MENÚ */
-			position: absolute;
-			top: 10px;
-			left: 10px;
-			z-index: 10;
-			color: white;
-			padding: 10px;
-			font-size: 30px;
-			cursor: pointer;
-		}
 		html {
 			overflow-x: hidden;
 		}
@@ -42,7 +32,7 @@
 		.content { /* CLASE PARA TODOS LOS BLOQUES */
 			position: absolute;
 			margin: 0 auto;
-			padding: 30px 20%;
+			padding: 30px 6%;
 			font-size: 18px;
 			transform: translateX(120%); /* CON ESTO ME ASEGURO QUE SE ALEJAN LAS PANTALLAS QUE NO USO */
 			transition: color 1s ease 1s, background 0.5s ease 1s, transform 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
@@ -184,7 +174,85 @@
 		  background: transparent;
 		}
 	  }
+
+	  /* BOTON DEL MENÚ*/
+	  #cbox{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		height: 28px;
+		width: 28px;
+		opacity: 0;
+		cursor: pointer;
+	  }
+	  .menu-icon {
+		position: absolute;
+		border: 2px solid #f5f0f0;
+		width: 28px;
+		height: 28px;
+	  }
+	  .menu-icon span {
+		position: absolute;
+		top: 11px;
+		left: 0px;
+		right: 0;
+		margin: 0 auto;
+		display: block;
+		height: 2px;
+		width: 20px;
+		background-color: #f5f0f0;
+		pointer-events: none;
+	  }
+	  .menu-icon span::after {
+		content: "";
+		position: absolute;
+		bottom: -6px;
+		display: block;
+		height: 2px;
+		width: 100%;
+		background-color: inherit;
+	  }
+	  .menu-icon span::before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		display: block;
+		height: 2px;
+		width: 100%;
+		background-color: inherit;
+	  }
+	  #cbox:checked + span {
+		transform: rotate(-45deg);
+		transition: transform 0.5s 0.5s ease;
+	  }
+	  #cbox:checked + span::before {
+		top: 0;
+		transform: rotate(90deg);
+		transition: top 0.5s ease, transform 0.5s 0.5s ease;
+	  }
+	  #cbox:checked + span::after {
+		opacity: 0;
+		bottom: 0;
+		transition: bottom 0.5s ease, opacity 0.5s 0.5s ease;
+	  }
 	  
+	  #cbox + span {
+		transform: rotate(0deg);
+		transition: transform 0.5s ease;
+	  }
+	  #cbox + span::before {
+		top: -6px;
+		transform: rotate(0deg);
+		transition: top 0.5s 0.5s ease, transform 0.5s ease;
+	  }
+	  #cbox + span::after {
+		opacity: 1;
+		bottom: -6px;
+		transition: bottom 0.5s 0.5s ease, opacity 0.5s ease;
+	  }
+
 	  /* BOTON DE LOGIN */
 	  #id_btn_login{
 		display: inline-block;
@@ -238,8 +306,90 @@
 	}
 	
 	
-	
-	
+	/* CODIGO PARA LAS LISTAS */
+	.icon {
+		cursor: pointer;
+		position: relative;
+		display: inline-block;
+		border-radius: 30px;
+		overflow: hidden;
+		/* ESTO ES PARA LAS FLECHAS */
+		max-width: 960px; 
+		padding: 20px;
+	}
+	.icon::before, .icon::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		transition: all 0.25s ease;
+		border-radius: 30px;
+	}
+	.icon-enter::after {
+		box-shadow: inset 0 0 0 1px yellow;
+	}
+	.icon-enter::before {
+		border-radius: 0;
+		margin-left: 100%;
+		box-shadow: inset 0 0 0 60px yellow;
+	}
+	.icon-enter:hover::before {
+		margin-left: 0;
+	}
+	/* FLECHA */
+	.arrow {
+		margin: 0 2px -1px -3px;
+		height: 13px; width: 13px;
+		border: 1px solid rgba(0, 0, 0, 0.6);
+		border-width: 3px 3px 0 0;
+		transform: rotate(45deg);
+	}
+	.arrow:before, .arrow:after {
+		content: '';
+		position: absolute;
+		display: block;
+		height: 10px; width: 10px;
+		border-width: 3px 3px 0 0;
+	}
+	.arrow:before {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		border-width: 3px 3px 0 0;
+		top: 5px; left: -8px;
+	}
+	.arrow:after {
+		border: 1px solid rgba(0, 0, 0, 1);
+		border-width: 3px 3px 0 0;
+		top: -11px; left: 8px;
+	}
+
+	/*	CAJAS DE LAS LISTAS. */
+	/* TODO: EN TAMAÑOS GRANDES CORREGIR TAMAÑOS 
+	   TODO: (¿JUEGO EN LA MISMA?)
+	   TODO: EN PEQUEÑAS EL JUEGO ESTARÁ EN OTRA VENTANA. */
+	#contenedorListas{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.listas{
+		background-color: grey;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 5%;
+		padding: 3%;
+		align-items: center;
+		box-shadow: black 2px 3px 10px;
+		border-radius: 10px;
+		width: 47%;
+	}
+	.listas:first-of-type{
+		width: 100%;
+	}
+
+
+
 	
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
