@@ -42,3 +42,52 @@ export class Tarea {    // CLASE TAREA
 
 }
 
+export class Usuario{
+    constructor (ID, login, passwd, HP_Pers, HP_Enem, acciones, ID_enem) {
+        this.ID = ID;
+        this.login = login;
+        this.passwd = passwd;
+        this.HP_Pers = HP_Pers;
+        this.HP_Enem = HP_Enem;
+        this.acciones = acciones;
+        this.ID_enem = ID_enem;
+    }
+// Getters
+    get get_ID() {return this.ID;}
+    get get_login() {return this.login;}
+    get get_passwd() {return this.passwd;}
+    get get_HP_Pers() {return this.HP_Pers;}
+    get get_HP_Enem() {return this.HP_Enem;}
+    get get_acciones() {return this.acciones;}
+    get get_ID_enem() {return this.ID_enem;}
+// Setters
+    set set_ID(ID) {this.ID=ID;}
+    set set_login(login) {this.login=login;}
+    set set_passwd(passwd) {this.passwd=passwd;}
+    set set_HP_Pers(HP_Pers) {this.HP_Pers=HP_Pers;}
+    set set_HP_Enem(HP_Enem) {this.HP_Enem=HP_Enem;}
+    set set_acciones(acciones) {this.acciones=acciones;}
+    set set_ID_enem(ID_enem) {this.ID_enem=ID_enem;}
+}
+
+export class Enemigo{
+    constructor (ID, type, loot, damage) {
+        this.ID = ID;
+        this.type = type;
+        this.loot = loot;
+        this.damage = damage;
+    }
+// Getters
+    get get_ID() {return this.ID;}
+    get get_type() {return this.type;}
+    get get_loot() {return this.loot;}
+    get get_damage() {return this.damage;}
+// Setters
+    set set_ID(ID) {this.ID=ID;}
+    set set_type(type) {this.type=type;}
+    set set_loot(loot) {this.loot=loot;}
+    set set_damage(damage) {this.damage=damage;}
+
+}
+
+
