@@ -24,22 +24,22 @@ $(document).ready(function () {
 
     // este codigo es de prueba
 
-    let subtarea=[
-        "Ir al baño",
-        "Echar pasta",
-        "Cepillar 2 minutos"
-    ];
+    // let subtarea=[
+    //     "Ir al baño",
+    //     "Echar pasta",
+    //     "Cepillar 2 minutos"
+    // ];
 
-    let ahora = new Date();
-    let luego = ahora+365;
+    // let ahora = new Date();
+    // let luego = ahora+365;
 
-    let tarea= new Tarea(
-        1,"Dientes","Lavarse los dientes",false,
-        subtarea,ahora,luego,0,true,1,0);
-    console.log(tarea.get_ID);
-    console.log(tarea.get_nombre);
-    console.log(tarea.get_detail);
-    console.log(tarea.get_important);
+    // let tarea= new Tarea(
+    //     1,"Dientes","Lavarse los dientes",false,
+    //     subtarea,ahora,luego,0,true,1,0);
+    // console.log(tarea.get_ID);
+    // console.log(tarea.get_nombre);
+    // console.log(tarea.get_detail);
+    // console.log(tarea.get_important);
 
 
 

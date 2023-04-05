@@ -1,10 +1,11 @@
 //TODAS LAS CLASES QUE SE USARÁN EN EL PROYECTO
 
 export class Tarea {    // CLASE TAREA
-    constructor (ID, nombre, detail, completed, subtarea, initial_date, limit_date, again, important, ID_user, ID_lista) {
+    constructor (ID, nombre, detail, reward, completed, subtarea, initial_date, limit_date, again, important, ID_user, ID_lista) {
       this.ID = ID;
       this.nombre = nombre;
       this.detail = detail;
+      this.reward = reward;
       this.completed = completed;
       this.subtarea = subtarea;
       this.initial_date = initial_date;
@@ -18,6 +19,7 @@ export class Tarea {    // CLASE TAREA
     get get_ID() {return this.ID;}
     get get_nombre() {return this.nombre;}
     get get_detail() {return this.detail;}
+    get get_reward() {return this.reward;}
     get get_completed() {return this.completed;}
     get get_subtarea() {return this.subtarea;}
     get get_initial_date() {return this.initial_date;}
@@ -30,6 +32,7 @@ export class Tarea {    // CLASE TAREA
     set set_ID(ID) {this.ID=ID;}
     set set_Nombre(nombre) {this.nombre=nombre;}
     set set_detail(detail) {this.detail=detail;}
+    set set_reward(reward) {this.reward=reward;}
     set set_completed(completed) {this.completed=completed;}
     set set_subtarea(subtarea) {this.subtarea=subtarea;}
     set set_initial_date(initial_date) {this.initial_date=initial_date;}
@@ -91,22 +94,31 @@ export class Enemigo{
 }
 
 export class Objeto{
-	constructor (ID, typi, looi, damagi) {
+	constructor (ID, type, ATK, DEF, HP, recoil, heal) {
         this.ID = ID;
-        this.typi = typi;
-        this.looi = looi;
-        this.damagi = damagi;
+        this.type = type;
+        this.ATK = ATK;
+        this.DEF = DEF;
+        this.HP = HP;
+        this.recoil = recoil;
+        this.heal = heal;
 	}
 // Getters
     get get_ID() {return this.ID;}
-    get get_typi() {return this.typi;}
-    get get_looi() {return this.looi;}
-    get get_damagi() {return this.damagi;}
+    get get_type() {return this.type;}
+    get get_ATK() {return this.ATK;}
+    get get_DEF() {return this.DEF;}
+    get get_HP() {return this.HP;}
+    get get_recoil() {return this.recoil;}
+    get get_heal() {return this.heal;}
 // Setters
     set set_ID(ID) {this.ID=ID;}
-    set set_typi(typi) {this.typi=typi;}
-    set set_looi(looi) {this.looi=looi;}
-    set set_damagi(damagi) {this.damagi=damagi;}
+    set set_type(type) {this.type=type;}
+    set set_ATK(ATK) {this.ATK=ATK;}
+    set set_DEF(DEF) {this.DEF=DEF;}
+    set set_HP(HP) {this.HP=HP;}
+    set set_recoil(recoil) {this.recoil=recoil;}
+    set set_heal(heal) {this.heal=heal;}
 
 }
 
