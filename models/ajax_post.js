@@ -26,7 +26,7 @@ function loadDoc(url, data, cFunction) {
       cFunction(this);
     }
   };
+  //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhttp.open("POST", url, true);
-  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhttp.send();
+  xhttp.send(data);
 }

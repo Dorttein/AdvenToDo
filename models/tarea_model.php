@@ -2,8 +2,6 @@
     include_once("db.php");
     $conexion = new db();
     $conectar = $conexion->conectar();
-// $Abd = new db();
-// $Abd->conectar();
     $consulta = 'SELECT * FROM tarea';
     $pdo = $conectar->prepare($consulta);
     $pdo->execute();

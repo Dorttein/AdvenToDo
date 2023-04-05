@@ -1,11 +1,10 @@
 $(document).ready(function () {
-
 	$.ajax({
 		type: "POST",
-		url: "../models/tarea_model.php",
-        data: "nocache=" + Math.random(),
+		url: "https://localhost/proyecto/models/tarea_model.php",
+		cache: false,
 		dataType: "json",
-        success: function (response) {
+		success: function (response) {
 			
             console.log(response);
             
@@ -26,9 +25,4 @@ $(document).ready(function () {
 
 
 
-function mostrar_ccaa(xhttp) {
-	var datos = JSON.parse(xhttp.responseText);
-	for (let i = 0; i < datos.length; i++) {
-		console.log(datos);
-	}
-}
+
