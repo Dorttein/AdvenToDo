@@ -90,4 +90,24 @@ export class Enemigo{
 
 }
 
+export class Objeto{
+	constructor (ID, typi, looi, damagi) {
+        this.ID = ID;
+        this.typi = typi;
+        this.looi = looi;
+        this.damagi = damagi;
+	}
+// Getters
+    get get_ID() {return this.ID;}
+    get get_typi() {return this.typi;}
+    get get_looi() {return this.looi;}
+    get get_damagi() {return this.damagi;}
+// Setters
+    set set_ID(ID) {this.ID=ID;}
+    set set_typi(typi) {this.typi=typi;}
+    set set_looi(looi) {this.looi=looi;}
+    set set_damagi(damagi) {this.damagi=damagi;}
+
+}
+
 
