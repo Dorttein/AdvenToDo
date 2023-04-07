@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdvenToDo</title>
     <link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/listas.css">
     <script src="JS/jquery-3.6.3.js"></script>
     <script src="JS/header.js" type="module"></script>
+    <script src="JS/listas.js" type="module"></script>
 	
 	
 	<!-- PRUEBA -->
-    <script src="JS/prueba.js"></script>
+    <!-- <script src="JS/prueba.js"></script> -->
 
 
 </head>
@@ -68,28 +70,46 @@
       
       
     <div class='content home'> <!-- ESTE DIV CONTIENE TODAS LAS LISTAS. AL ABRIR UNA LISTA SE ABRE OTRO DIV CON SUS TAREAS -->
-		<section id="contenedorListas">
-			<h1>Tareas</h1>
-      <!-- https://www.youtube.com/watch?v=7sVoukMGJwE&ab_channel=MagtimusPro   TARJETAS PARA LAS TAREAS   -->
-			<div class="listas" id="id_today">
-				<div class="icon icon-enter"><div class="arrow"></div></div>
-				<div>TODAY</div>
-				<div>0</div>
-				<div>FECHA</div>
-			</div>
-			<div class="listas">
-				<div class="icon icon-enter"><div class="arrow"></div></div>
-				<div>Lista de Prueba</div>
-				<div>5</div>
-				<div>|||</div>
-			</div>
-			<div class="listas">
-				<div class="icon icon-enter"><div class="arrow"></div></div>
-				<div>Lista de Prueba</div>
-				<div>15</div>
-				<div>|||</div>
-			</div>
+		<div class="fondoNegro"></div>
 
+		<div id="id_juegoGrande">AQUI VA EL JUEGO EN TAMANO GRANDE</div>
+
+		<section id="id_contenido_principal">
+
+			<div class="lista" id="id_today">
+				<div class="back">
+					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
+					<div>TAREAS Dia</div>
+				</div>
+				<div class="front">
+					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
+					<div>MI DIA</div>
+					<div>0</div>
+					<div>18/02/2002</div>
+				</div>
+			</div>
+			<div class="lista">
+				<div class="back">
+					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
+					<div>TAREAS 1</div>
+				</div>
+				<div class="front">
+					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
+					<div>Lista 1</div>
+					<div>0</div>
+				</div>
+			</div>
+			<div class="lista">
+				<div class="back">
+					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
+					<div>TAREAS 2</div>
+				</div>
+				<div class="front">
+					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
+					<div>Lista 2</div>
+					<div>0</div>
+				</div>
+			</div>
 
 
 		</section>
