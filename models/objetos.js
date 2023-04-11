@@ -7,7 +7,7 @@ export class Tarea {    // CLASE TAREA
       this.detail = detail;
       this.reward = reward;
       this.completed = completed;
-      this.subtarea = subtarea;
+      this.subtarea = subtarea; /* ESTO ES UN ARRAY */
       this.initial_date = initial_date;
       this.limit_date = limit_date;
       this.again = again;
@@ -43,6 +43,22 @@ export class Tarea {    // CLASE TAREA
     set set_ID_lista(ID_lista) {this.ID_lista=ID_lista;}
 // Métodos
 
+}
+
+export class Lista{
+    constructor (ID, name, lista_tareas) {
+        this.ID = ID;
+        this.name = name;
+        this.lista_tareas = lista_tareas; /* ESTO ES UN ARRAY */
+    }
+// Getters
+    get get_ID() {return this.ID;}
+    get get_name() {return this.name;}
+    get get_lista_tareas() {return this.lista_tareas;}
+// Setters
+    set set_ID(ID) {this.ID=ID;}
+    set set_name(name) {this.name=name;}
+    set set_lista_tareas(lista_tareas) {this.lista_tareas=lista_tareas;}
 }
 
 export class Usuario{
@@ -94,7 +110,7 @@ export class Enemigo{
 }
 
 export class Objeto{
-	constructor (ID, type, ATK, DEF, HP, recoil, heal) {
+	constructor (ID, type, ATK, DEF, HP, recoil, heal, locked, equiped) {
         this.ID = ID;
         this.type = type;
         this.ATK = ATK;
@@ -102,6 +118,8 @@ export class Objeto{
         this.HP = HP;
         this.recoil = recoil;
         this.heal = heal;
+        this.locked = locked;
+        this.equiped = equiped;
 	}
 // Getters
     get get_ID() {return this.ID;}
@@ -111,6 +129,8 @@ export class Objeto{
     get get_HP() {return this.HP;}
     get get_recoil() {return this.recoil;}
     get get_heal() {return this.heal;}
+    get get_locked() {return this.locked;}
+    get get_equiped() {return this.equiped;}
 // Setters
     set set_ID(ID) {this.ID=ID;}
     set set_type(type) {this.type=type;}
@@ -119,7 +139,8 @@ export class Objeto{
     set set_HP(HP) {this.HP=HP;}
     set set_recoil(recoil) {this.recoil=recoil;}
     set set_heal(heal) {this.heal=heal;}
-
+    set set_locked(locked) {this.locked=locked;}
+    set set_equiped(equiped) {this.equiped=equiped;}
 }
 
 

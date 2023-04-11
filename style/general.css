@@ -1,5 +1,7 @@
 /*    GENERAL    */
 
+	/* TODO: ANYADIR COMPLETED A SUBTAREAS*/
+
 
 	/*  MENU  */
 		/*
@@ -179,9 +181,6 @@
 	  }
 
 	  /* BOTON DEL MENÚ*/
-      /* ! BUG: AL PULSAR UN MENÚ TAMBIEN 
-         ! SE TIENE QUE ACTUALIZAR EL BOTÓN 
-         TODO: HACER EL BOTON CON JS PARA SOLUCIONARLO */
 	  #cbox{
 		position: absolute;
 		top: 0;
@@ -243,7 +242,6 @@
 		bottom: 0;
 		transition: bottom 0.5s ease, opacity 0.5s 0.5s ease;
 	  }
-	  
 	  #cbox + span {
 		transform: rotate(0deg);
 		transition: transform 0.5s ease;
