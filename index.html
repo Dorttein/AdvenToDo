@@ -82,65 +82,52 @@
 					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
 
 					<div id="id_lista_tareas">
-						<div class="tarea">
+						<form action="POST" class="formulario_tarea">
+							<div class="tarea">
 
-							<label id="id_label_comp">
-								<input type="checkbox" name="completed" id="id_completed">
-								<span id="id_span_comp"></span>
-							</label>
-
-							<div>Reward 1</div>
-							<div>Nombre 1</div>
-							<div>Detalles 1</div>
-							<div>Subtareas 1</div>
-							<div>Repetir 1</div>
-							<div>Fecha Creacion 1</div>
-							<div>Fecha Limite 1</div>
-							
-							<label>
-								<input type="checkbox" />
-								<div class="circle">
-								  <div class="circle--inner circle--inner__1" ></div>
-								  <div class="circle--inner circle--inner__2" ></div>
-								  <div class="circle--inner circle--inner__3" ></div>
-								  <div class="circle--inner circle--inner__4" ></div>
-								  <div class="circle--inner circle--inner__5" ></div>
-								  <div class="circle--outer" ></div>
+								<div class="labels">
+									<label for="input_completed">Completed</label>
+									<label for="input_completed">Recompensa</label>
+									<label for="input_completed">Nombre</label>
+									<label for="input_completed">Detalles</label>
+									<label for="input_completed">Subtareas</label>
+									<label for="input_completed">Repetir</label>
+									<label for="input_completed">Fecha Creacion</label>
+									<label for="input_completed">Fecha Limite</label>
+									<label for="input_important">Importante</label>
 								</div>
-							</label>
 
-							
+								<div class="inputs">
+									<label id="id_label_comp">
+										<input type="checkbox" name="completed" class="input_completed">
+										<span id="id_span_comp"></span>
+									</label>
 
-						</div>
-						<div class="tarea">
-
-							<label id="id_label_comp">
-								<input type="checkbox" name="completed" id="id_completed">
-								<span id="id_span_comp"></span>
-							</label>
-
-							<div>Reward 2</div>
-							<div>Nombre 2</div>
-							<div>Detalles 2</div>
-							<div>Subtareas 2</div>
-							<div>Repetir 2</div>
-							<div>Fecha Creacion 2</div>
-							<div>Fecha Limite 2</div>
-							
-							<label id="id_label_imp">
-								<input type="checkbox" />
-								<div class="circle">
-								  <div class="circle--inner circle--inner__1" ></div>
-								  <div class="circle--inner circle--inner__2" ></div>
-								  <div class="circle--inner circle--inner__3" ></div>
-								  <div class="circle--inner circle--inner__4" ></div>
-								  <div class="circle--inner circle--inner__5" ></div>
-								  <div class="circle--outer" ></div>
+									<input type="number" name="reward" class="input_reward">
+									<input type="text" name="nombre" class="input_nombre">
+									<input type="text" name="detalles" class="input_detalles">
+									<input type="text" name="subtareas" class="input_subtareas">
+									<input type="text" name="repetir" class="input_repetir">
+									<input type="date" name="creacion" class="input_creacion">
+									<input type="date" name="limite" class="input_limite">
+									<label>
+										<input type="checkbox" name="importante" class="input_importante" />
+										<div class="circle">
+										<div class="circle--inner circle--inner__1" ></div>
+										<div class="circle--inner circle--inner__2" ></div>
+										<div class="circle--inner circle--inner__3" ></div>
+										<div class="circle--inner circle--inner__4" ></div>
+										<div class="circle--inner circle--inner__5" ></div>
+										<div class="circle--outer" ></div>
+										</div>
+									</label>
 								</div>
-							</label>
+							</div>
+						</form>
+						<!-- AQUI VAN MAS TAREAS -->
 
-							
-						</div>
+
+
 					</div>
 					
 				</div>
