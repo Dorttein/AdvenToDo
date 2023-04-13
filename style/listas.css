@@ -133,10 +133,7 @@
     flex-wrap: wrap;
 }
 
-.tarea{
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+.front-tarea, .back-tarea{
     justify-items: center;
     background-color: grey;
     padding: 2%;
@@ -148,10 +145,28 @@
     height: fit-content;
 }
 
+.front-tarea{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.front-tarea .icon{
+    grid-area: 1/1/-1/1;
+}
+
+.front-tarea .group .lab_input_text{
+
+	top: 0em;
+
+}
+
+
 .input_reward{
-    border-radius: 20%;
-    width: 4em;
+    border-radius: 30%;
+    width: 3em;
     border-style: none;
+    height: 2em;
 }
 
 
