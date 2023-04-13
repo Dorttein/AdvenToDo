@@ -40,21 +40,21 @@
 			<a href='contactus_is_visible'>Prueba3</a>
 		</li>
 		<li id="id_li_form">
-		<form action="post" id="id_form_login">
+			<form action="post" id="id_form_login">
 			<br>
 				<div class="group">
-					<input type="text" class="input" required="true" id="id_login">
+					<input type="text" required="true" id="id_login" class="input_text">
 					<span class="hightlight"></span>
 					<span class="bar"></span>
-					<label class="lab_login">Login</label>
+					<label class="lab_input_text">Login</label>
 				</div>
 				<br>
 				<br>
 				<div class="group">
-					<input type="text" class="input" required="true" id="id_passwd">
+					<input type="password" required="true" id="id_passwd" class="input_text">
 					<span class="hightlight"></span>
 					<span class="bar"></span>
-					<label class="lab_login">Password</label>
+					<label class="lab_input_text">Contrasenya</label>
 				</div><br>
 				<button id="id_btn_login">LOGIN</button>
 			</form>
@@ -70,60 +70,94 @@
       
       
     <div class='content home'> <!-- ESTE DIV CONTIENE TODAS LAS LISTAS. AL ABRIR UNA LISTA SE ABRE OTRO DIV CON SUS TAREAS -->
-		<div class="fondoNegro"></div>
+		<div class="fondoNegroLista"></div>
 
 		<div id="id_juegoGrande">AQUI VA EL JUEGO EN TAMANO GRANDE</div>
 
 		<section id="id_contenido_principal">
 
 			<div class="lista" id="id_today">
-				<div class="back">
+				<div class="back-lista">
 
-					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
+					<div class="icon icon-enter show-back-lista"><div class="arrow"></div></div>
 
 					<div id="id_lista_tareas">
 						<form action="POST" class="formulario_tarea">
 							<div class="tarea">
+								<div class="fondoNegroTarea"></div>
 
-								<div class="labels">
-									<label for="input_completed">Completed</label>
-									<label for="input_completed">Recompensa</label>
-									<label for="input_completed">Nombre</label>
-									<label for="input_completed">Detalles</label>
-									<label for="input_completed">Subtareas</label>
-									<label for="input_completed">Repetir</label>
-									<label for="input_completed">Fecha Creacion</label>
-									<label for="input_completed">Fecha Limite</label>
-									<label for="input_important">Importante</label>
+								<div class="back-tarea">
+
+									<div class="icon icon-enter show-back-tarea"><div class="arrow"></div></div>
+
+
+
 								</div>
 
-								<div class="inputs">
-									<label id="id_label_comp">
-										<input type="checkbox" name="completed" class="input_completed">
-										<span id="id_span_comp"></span>
-									</label>
+								<div class="front-tarea">
 
-									<input type="number" name="reward" class="input_reward">
-									<input type="text" name="nombre" class="input_nombre">
-									<input type="text" name="detalles" class="input_detalles">
-									<input type="text" name="subtareas" class="input_subtareas">
-									<input type="text" name="repetir" class="input_repetir">
-									<input type="date" name="creacion" class="input_creacion">
-									<input type="date" name="limite" class="input_limite">
-									<label>
-										<input type="checkbox" name="importante" class="input_importante" />
-										<div class="circle">
-										<div class="circle--inner circle--inner__1" ></div>
-										<div class="circle--inner circle--inner__2" ></div>
-										<div class="circle--inner circle--inner__3" ></div>
-										<div class="circle--inner circle--inner__4" ></div>
-										<div class="circle--inner circle--inner__5" ></div>
-										<div class="circle--outer" ></div>
+									<div class="icon icon-enter show-front-tarea"><div class="arrow"></div></div>
+
+
+									
+								</div>
+								
+									<!-- <div class="labels"> -->
+										<label for="input_completed"></label>
+										<label for="input_completed">Acciones</label>
+										<label for="input_completed">Nombre</label>
+										<label for="input_completed">Detalles</label>
+										<label for="input_completed">Subtareas</label>
+										<label for="input_completed">Repetir</label>
+										<label for="input_completed">Fecha Creacion</label>
+										<label for="input_completed">Fecha Limite</label>
+										<label for="input_important">Importante</label>
+									<!-- </div> -->
+
+									<!-- <div class="inputs"> -->
+										<label id="id_label_comp">
+											<input type="checkbox" name="completed" class="input_completed">
+											<span id="id_span_comp"></span>
+										</label>
+
+										<input type="number" name="reward" class="input_reward" min="0" placeholder="0">
+										<div class="group">
+											<input type="text" required="true" class="input_text input_name">
+											<span class="hightlight"></span>
+											<span class="bar"></span>
+											<label class="lab_input_text">Nombre</label>
 										</div>
-									</label>
-								</div>
+										<div class="group">
+											<input type="text" required="true" class="input_text input_details">
+											<span class="hightlight"></span>
+											<span class="bar"></span>
+											<label class="lab_input_text">Detalles</label>
+										</div>
+										<input type="text" name="subtareas" class="input_subtareas">
+										<input type="text" name="repetir" class="input_repetir">
+										<input type="date" name="creacion" class="input_creacion">
+										<input type="date" name="limite" class="input_limite">
+										<label>
+											<input type="checkbox" name="importante" class="input_importante" />
+											<div class="circle">
+											<div class="circle--inner circle--inner__1" ></div>
+											<div class="circle--inner circle--inner__2" ></div>
+											<div class="circle--inner circle--inner__3" ></div>
+											<div class="circle--inner circle--inner__4" ></div>
+											<div class="circle--inner circle--inner__5" ></div>
+											<div class="circle--outer" ></div>
+											</div>
+										</label>
+									<!-- </div> -->
 							</div>
 						</form>
+
+
+
+
+
+
+
 						<!-- AQUI VAN MAS TAREAS -->
 
 
@@ -131,35 +165,14 @@
 					</div>
 					
 				</div>
-				<div class="front">
-					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
+				<div class="front-lista">
+					<div class="icon icon-enter show-front-lista"><div class="arrow"></div></div>
 					<div>MI DIA</div>
 					<div>0</div>
 					<div>18/02/2002</div>
 				</div>
 			</div>
-			<div class="lista">
-				<div class="back">
-					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
-					<div>TAREAS 1</div>
-				</div>
-				<div class="front">
-					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
-					<div>Lista 1</div>
-					<div>0</div>
-				</div>
-			</div>
-			<div class="lista">
-				<div class="back">
-					<div class="icon icon-enter show-back"><div class="arrow"></div></div>
-					<div>TAREAS 2</div>
-				</div>
-				<div class="front">
-					<div class="icon icon-enter show-front"><div class="arrow"></div></div>
-					<div>Lista 2</div>
-					<div>0</div>
-				</div>
-			</div>
+			
 
 
 		</section>

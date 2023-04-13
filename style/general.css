@@ -99,46 +99,47 @@
 		align-items: center;
 		justify-content: center;
 	  }
-	  .group{ /* CONTENEDOR DE CADA INPUT */
+	/* INPUT TEXT GENERAL */
+	.group{ /* CONTENEDOR DE CADA INPUT */
 		margin-left: 5%;
 		position: relative;
-	  }
-	  .input{ /* CLASE PARA LOS INPUTS */
-		font-size: 16px;
-		padding: 10px 10px 10px 5px;
+	}
+	.input_text{ /* CLASE PARA LOS INPUTS */
+		font-size: 1em;
+		padding: 8% 1.5% 1.5% 1%;
 		display: block;
-		width: 185px;
+		width: 70%;
 		border: none;
 		border-bottom: 1px solid #6c6c6c;
 		background: transparent;
 		color: #f5f0f0;
-	  }
-	  .input:focus{
+	}
+	.input_text:focus{
 		outline:none;
-	  }
-	  .lab_login{ /* TITULO DE LOS INPUT */
+	}
+	.lab_input_text{ /* TITULO DE LOS INPUT */
 		color: #f5f0f0;
-		font-size: 18px;
+		font-size: 1em;
 		font-weight: normal;
 		position: absolute;
 		pointer-events: none;
-		left: 5px;
-		top: 10px;
+		left: 0.5em;
+		top: 1em;
 		transition: 0.2s ease all;
 		-moz-transition: 0.2s ease all;
 		-webkit-transition: 0.2s ease all;
-	  }
-	  .input:focus ~ .lab_login, .input:valid ~ .lab_login{
-		top: -20px;
-		font-size: 14px;
+	}
+	.input_text:focus ~ .lab_input_text, .input_text:valid ~ .lab_input_text{
+		top: -0.5em;
+		font-size: 0.9em;
 		color: #0e94f4;
-	  }
-	  .bar{ /* BARRA AZUL */
+	}
+	.bar{ /* BARRA AZUL */
 		position: relative;
 		display: block;
-		width: 185px;
-	  }
-	  .bar:before, .bar:after{
+		width: 70%;
+	}
+	.bar:before, .bar:after{
 		content: "";
 		height: 2px;
 		width: 0;
@@ -148,17 +149,17 @@
 		transition: 0.2s ease all;
 		-moz-transition: 0.2s ease all;
 		-webkit-transition: 0.2s ease all;
-	  }
-	  .bar:before{
-	  left: 50%;
-	  } 
-	  .bar:after{
-	  right: 50%;
-	  }
-	  .input:focus ~ .bar:before, .input:focus ~ .bar:after{
+	}
+	.bar:before{
+		left: 50%;
+	} 
+	.bar:after{
+		right: 50%;
+	}
+	.input_text:focus ~ .bar:before, .input_text:focus ~ .bar:after{
 		width: 50%;
-	  }
-	  .highlight{
+	}
+	.highlight{
 		position: absolute;
 		height: 60%;
 		width: 0px;
@@ -166,19 +167,18 @@
 		left: 0;
 		pointer-events: none;
 		opacity: 0.5;
-	  }
-	  .input:focus ~ .highlight{
+	}
+	.input_text:focus ~ .highlight{
 		animation: input-focus 0.5s ease;
-	  }
-	  @keyframes input-focus{
+	}
+	@keyframes input-focus{
 		from{
-		  background: #1486d7;
+			background: #1486d7;
 		}
 		to{
-		  width: 185px;
-		  background: transparent;
+			background: transparent;
 		}
-	  }
+	}
 
 	  /* BOTON DEL MENÚ*/
 	  #cbox{
