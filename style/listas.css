@@ -1,7 +1,7 @@
 /* CODIGO PARA LAS LISTAS */
 
 	/*	DIV OSCURO PARA OCULTAR COSAS */
-	.fondoNegro{
+	.fondoNegroLista, .fondoNegroTarea{
 		width: 1000%;
 		height: 1000em;
 		position: fixed;
@@ -105,7 +105,7 @@
     width: 100%;
     margin: 0;
 }
-.front{
+.front-lista, .front-tarea{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -114,7 +114,7 @@
     /* transition: all .3s linear; */
     grid-area: 1/1/1/1;
 }
-.back{
+.back-lista, .back-tarea{
     display: none;
     align-items: start;
     /* background-color: lightblue; */
@@ -124,7 +124,7 @@
     grid-area: 1/1/1/1;
 }
 
-.back .icon{
+.back-lista .icon{
     align-self: center;
 }
 
@@ -133,8 +133,8 @@
     flex-wrap: wrap;
 }
 
-.tarea{
-    display: flex;
+.front-tarea, .back-tarea{
+    justify-items: center;
     background-color: grey;
     padding: 2%;
     margin-bottom: 1%;
@@ -144,6 +144,32 @@
     width: 100%;
     height: fit-content;
 }
+
+.front-tarea{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.front-tarea .icon{
+    grid-area: 1/1/-1/1;
+}
+
+.front-tarea .group .lab_input_text{
+
+	top: 0em;
+
+}
+
+
+.input_reward{
+    border-radius: 30%;
+    width: 3em;
+    border-style: none;
+    height: 2em;
+}
+
+
 
 
 
