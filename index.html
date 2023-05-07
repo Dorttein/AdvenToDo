@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdvenToDo</title>
-    <link rel="stylesheet" href="style/general.css">
-    <link rel="stylesheet" href="style/listas.css">
-    <script src="JS/jquery-3.6.3.js"></script>
+
+
+    <script src="JS/lib/jquery-3.6.3.js"></script>
+	<!-- EL LOGIN DEBE CARGARSE ANTES QUE EL HEADER -->
+    <script src="JS/login.js" type="module"></script>
     <script src="JS/header.js" type="module"></script>
+    <!-- <script src="JS/crearListas.js" type="module"></script> -->
+	
     <script src="JS/listas.js" type="module"></script>
 	
+	<link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/registro.css">
+    <link rel="stylesheet" href="style/listas.css">
 	
 	<!-- PRUEBA -->
-    <!-- <script src="JS/prueba.js"></script> -->
 
+	<script>	//IMPIDE EL USO DE INTROS EN LOS NOMBRES DE LAS TAREAS. PROBABLEMENTE NO LO NECESITE
+		function cancelar(e) {if (e.which === 13 && !e.shiftKey) {e.preventDefault();return false;}}
+	</script>
 
 </head>
 <body>
@@ -30,17 +39,18 @@
 		<li>
 			<a href='home_is_visible'>Tareas</a>
 		</li>
+		<!-- TODO: ESTE SOLO APARECERÁ SI ESTÁS EN MOVIL -->
 		<li>
 			<a class="mobile" href='aboutus_is_visible'>Juego</a>
 		</li>
 		<li>
 			<a href='clients_is_visible'>Objetos</a>
 		</li>
-		<li>
-			<a href='contactus_is_visible'>Prueba3</a>
-		</li>
+		<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESION 
+			<li class="reg"><a href='contactus_is_visible'>Registrarse</a></li> 
+	 	-->
 		<li id="id_li_form">
-			<form action="post" id="id_form_login">
+			<form method="post" id="id_form_login">
 			<br>
 				<div class="group">
 					<input type="text" required="true" id="id_login" class="input_text">
@@ -50,15 +60,18 @@
 				</div>
 				<br>
 				<br>
-				<div class="group">
+				<div class="group reg">
 					<input type="password" required="true" id="id_passwd" class="input_text">
 					<span class="hightlight"></span>
 					<span class="bar"></span>
-					<label class="lab_input_text">Contrasenya</label>
+					<label class="lab_input_text">Contraseña</label>
 				</div><br>
-				<button id="id_btn_login">LOGIN</button>
+				<label id="id_user_nf"></label><br>
+				<input type="button" value="LOGIN" id="id_btn_login" class="reg">
+				<!-- <button id="id_btn_login">LOGIN</button> -->
 			</form>
 		</li>
+		<input type='button' value='Cerrar Sesion' id='id_btn_logout' class='logout' hidden>
 		</ul>
 	</nav>
 	</div>
@@ -75,103 +88,30 @@
 		<div id="id_juegoGrande">AQUI VA EL JUEGO EN TAMANO GRANDE</div>
 
 		<section id="id_contenido_principal">
+			<!-- AQUÍ SE AÑADEN LAS LISTAS AUTOMÁTICAMENTE DESDE /JS/listas.js -->
 
-			<div class="lista" id="id_today">
-				<div class="back-lista">
-
-					<div class="icon icon-enter show-back-lista"><div class="arrow"></div></div>
-
-					<div id="id_lista_tareas">
-						<form action="POST" class="formulario_tarea">
-							<div class="fondoNegroTarea"></div>
-							<div class="tarea">
-
-								<div class="back-tarea">
-
-									<div class="icon icon-enter show-back-tarea"><div class="arrow"></div></div>
-
-
-
-								</div>
-
-								<div class="front-tarea">
-
-									<div class="icon icon-enter show-front-tarea"><div class="arrow"></div></div>
-
-									<label for="input_completed"></label>
-									<label for="input_completed">Acciones</label>
-									<label for="input_name"></label>
-									<label for="input_details"></label>
-									<label for="input_creacion">Fecha Creacion</label>
-									<label for="input_limite">Fecha Limite</label>
-									<label for="input_importante"></label>
-
-
-									<label id="id_label_comp">
-										<input type="checkbox" name="completed" class="input_completed">
-										<span id="id_span_comp"></span>
-									</label>
-
-									<input type="number" name="reward" class="input_reward" min="0" max="10" placeholder="0">
-									
-									<div class="group">
-										<input type="text" required="true" class="input_text input_name">
-										<span class="hightlight"></span>
-										<span class="bar"></span>
-										<label class="lab_input_text">Nombre</label>
-									</div>
-
-									<div class="group">
-										<input type="text" required="true" class="input_text input_details">
-										<span class="hightlight"></span>
-										<span class="bar"></span>
-										<label class="lab_input_text">Detalles</label>
-									</div>
-
-									<input type="date" name="creacion" class="input_creacion">
-
-									<input type="date" name="limite" class="input_limite">
-
-									<label>
-										<input type="checkbox" name="importante" class="input_importante" />
-										<div class="circle">
-										<div class="circle--inner circle--inner__1" ></div>
-										<div class="circle--inner circle--inner__2" ></div>
-										<div class="circle--inner circle--inner__3" ></div>
-										<div class="circle--inner circle--inner__4" ></div>
-										<div class="circle--inner circle--inner__5" ></div>
-										<div class="circle--outer" ></div>
-										</div>
-									</label>
-
-								</div>
-								
-									
-							</div>
-						</form>
-
-
-
-
-
-
-
-						<!-- AQUI VAN MAS TAREAS -->
-
-
-
+			<!-- CIRCULO PARA AÑADIR LISTAS -->
+			<div id="id_new_lista">
+				<div id="id_div_nueva_lista">
+					<div class="btn btn-lista" id="myBtn">
+						<div class="btn__icon btn__icon_back">+</div>
 					</div>
-					
 				</div>
-				<div class="front-lista">
-					<div class="icon icon-enter show-front-lista"><div class="arrow"></div></div>
-					<div>MI DIA</div>
-					<div>0</div>
-					<div>18/02/2002</div>
+				<form action="POST" id="formulario_new_lista">
+					<div class="group div_name_lista">
+						<input type="text" required="true" class="input_text input_name_lista" maxlength="50" minlength="1">
+						<span class="hightlight"></span>
+						<span class="bar"></span>
+						<label class="lab_input_text">Nombre Lista</label>
+					</div>
+				</form>
+				<input form="formulario_new_lista" type="button" value="CREAR" id="id_btn_lista">
+			</div>
+			<div id="id_div_nueva_lista">
+				<div class="btn btn-lista" id="myBtn">
+					<div class="btn__icon">+</div>
 				</div>
 			</div>
-			
-
 
 		</section>
     </div>
@@ -197,14 +137,21 @@
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
     </div>
-    <div class='content contactus'>
-        <h1>Registrarse</h1>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-    </div>
+	<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESIÓN -->
+    <div class='content contactus'>        
+		<div class="registro">
+			<form method="post" id="id_form_registro">
+			  <h2>Registro de usuario</h2>
+			  <label for="usuario">Usuario:</label>
+			  <input type="text" id="usuario" name="usuario">
+			  <label for="password">Contraseña:</label>
+			  <input type="password" id="password" name="password">
+			  <label for="confirm-password">Confirmar contraseña:</label>
+			  <input type="password" id="confirm-password" name="confirm-password">
+			  <input type="button" value="Registrarse" id="id_btn_registro">
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>

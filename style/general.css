@@ -19,7 +19,7 @@
 			height: 100%;
 			color: #f5f0f0;
 			position: relative;
-			background-image: url(/photo/fondoProvisional.jpg);
+			background-image: url(https://localhost/proyecto/photo/fondoProvisional.jpg);
 			transform: translateX(0);
 			transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		}
@@ -171,6 +171,10 @@
 	.input_text:focus ~ .highlight{
 		animation: input-focus 0.5s ease;
 	}
+	#id_user_nf{
+		margin-left: 6%;
+		color: red;
+	}
 	@keyframes input-focus{
 		from{
 			background: #1486d7;
@@ -179,6 +183,19 @@
 			background: transparent;
 		}
 	}
+
+	#id_btn_logout{
+		transform: translate(130%, -100%);
+		border: solid 1px black;
+		border-radius: 5px;
+		height: 4em;
+		background-color: lightgrey;
+	}
+	#id_btn_logout:hover{
+		background-color: grey;
+	}
+
+
 
 	  /* BOTON DEL MENÚ*/
 	  #cbox{
@@ -276,7 +293,7 @@
 	  #id_btn_login:before{
 		content: "";
 		position: absolute;
-		background: #0A0046;
+		background-color: #0A0046;
 		height: 150px;
 		width: 200px;
 		border-radius: 50%;
@@ -289,7 +306,7 @@
 		color: white;
 		transition: 0.7s;
 	  }
-	  #id_btn_login:hover:before{
+	  #id_btn_login:hover::before{
 		top: -30px;
 		left: -30px;
 	  }

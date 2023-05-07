@@ -1,59 +1,83 @@
-$(".show-front-lista").click(function (e) { /* DA LA VUELTA AL PADRE Y AL HERMANO DEL PADRE AL PULSAR EL BOTON */
-    /* DARLES LA VUELTA A LOS DOS DIV */
-    $(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");
-    $(e.target).parent("div").siblings("div").css("display", "flex");
-    // $(e.target).parent("div").siblings("div").css("align-items", "start");
-    $(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
+import {getCookie, crearCookie, escribirListas, escribirTareas, reescribir, funcionesTareas, funcionesListas} from '/proyecto/JS/funciones.js';
 
-    /* MOVERLO AL CENTRO DE LA PANTALLA Y OSCURECER EL RESTO */
-    $(e.target).parent("div").parent("div").css("width", "90vw"); // AFECTO AL BLOQUE GRIS. .lista
-    $(e.target).parent("div").parent("div").css("position", "absolute");
-    $(e.target).parent("div").parent("div").css("height", "70vh");
-    $(e.target).parent("div").parent("div").css("margin-left", "-50%");
-    $(e.target).parent("div").parent("div").css("z-index", "110");
-    $(".fondoNegroLista").show();
+$(document).ready(function () {
+    
+    if (getCookie("user").length != 0 ) {
+		escribirListas();
+        funcionesListas();
+        escribirTareas();
+        funcionesTareas();
+        //EJECUTA LA FUNCION CADA 10 MINUTOS PARA ASEGURARSE QUE TODO ESTÁ ACTUALIZADO.
+        setInterval(reescribir, 10 * 60 * 1000);
+	}
+
+    
+
 });
 
-$(".show-back-lista").click(function (e) { 
-    $(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
-    $(e.target).parent("div").css("display", "none");
-    $(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
-
-    $(e.target).parent("div").parent("div").css("position", "static");
-
-    $(e.target).parent("div").parent("div").css("width", "");
-    $(e.target).parent("div").parent("div").css("height", "");
-    $(e.target).parent("div").parent("div").css("margin-left", "");
-    $(e.target).parent("div").parent("div").css("z-index", "");
-    $(".fondoNegroLista").hide();
+// ABRIR MENÚ PARA CREAR NUEVA LISTA
+$(".btn-lista").click(function (e) { 
+    // window.alert("Circulo pulsado");
+    if($('#id_new_lista').css("display")=="none"){
+        $('#id_new_lista').css("display", "flex");
+    }else{
+        $('#id_new_lista').css("display", "none");
+    }
+    $(".fondoNegroLista").toggle();
 });
 
-$(".show-front-tarea").click(function (e) { /* DA LA VUELTA AL PADRE Y AL HERMANO DEL PADRE AL PULSAR EL BOTON */
-    /* DARLES LA VUELTA A LOS DOS DIV */
-    $(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");
-    $(e.target).parent("div").siblings("div").css("display", "flex");
-    // $(e.target).parent("div").siblings("div").css("align-items", "start");
-    $(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
+$("#id_btn_lista").click(function (e) { 
+    // console.log("Boton de crear lista");
+    let nombreLista = $('.input_name_lista').val();
 
-    /* MOVERLO AL CENTRO DE LA PANTALLA Y OSCURECER EL RESTO */
-    $(e.target).parent("div").parent("div").css("width", "90vw"); // AFECTO AL BLOQUE GRIS. .lista
-    $(e.target).parent("div").parent("div").css("position", "absolute");
-    $(e.target).parent("div").parent("div").css("height", "70vh");
-    $(e.target).parent("div").parent("div").css("margin-left", "-5%");
-    $(e.target).parent("div").parent("div").css("z-index", "120");
-    $(".fondoNegroTarea").show();
+    if (nombreLista === '') {
+        window.alert('Por favor, rellene todos los campos.');
+    } else {
+        $.ajax({
+            type: "POST",
+            url: "https://localhost/Proyecto/PHP/inserts/lista_insert.php",
+            data: "ID=" + encodeURIComponent(getCookie("user")[0]) + "&lista=" + encodeURIComponent(nombreLista)  + "&nocache=" + Math.random(),
+            dataType: "",
+            success: function (response) {
+                if (response == 0) {
+                    window.alert("No se ha insertado correctamente");
+                }else{
+                    $('#id_new_lista').css("display", "none");
+                    $('.input_name_lista').val("");
+                    window.alert("Lista Creada");
+                    reescribir();
+                }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+                window.alert("Error: " + error);
+            }
+        }); 
+    }
 });
 
-$(".show-back-tarea").click(function (e) { 
-    $(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
-    $(e.target).parent("div").css("display", "none");
-    $(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
 
-    $(e.target).parent("div").parent("div").css("position", "static");
+// /* FECHA MINIMA DE LIMITE */
+// var fecha = new Date(); //Fecha actual
+// var mes = fecha.getMonth()+1; //obteniendo mes
+// var dia = fecha.getDate(); //obteniendo dia
+// var ano = fecha.getFullYear(); //obteniendo año
+// if(dia<10)dia='0'+dia;
+// if(mes<10)mes='0'+mes;
 
-    $(e.target).parent("div").parent("div").css("width", "");
-    $(e.target).parent("div").parent("div").css("height", "");
-    $(e.target).parent("div").parent("div").css("margin-left", "");
-    $(e.target).parent("div").parent("div").css("z-index", "");
-    $(".fondoNegroTarea").hide();
-});
+// /* TODO: HAY QUE PONER LA FECHA DE LA BASE DE DATOS */
+
+// $(".input_creacion").val(ano+"-"+mes+"-"+dia);
+// $(".input_limite").val(ano+"-"+mes+"-"+dia);
+
+// $(".input_limite").change(function (e) { 
+//     if($(".input_limite").val()<ano+"-"+mes+"-"+dia){
+//         $(".input_limite").val(ano+"-"+mes+"-"+dia);
+//     }
+    
+// });
+
+
+
+
+

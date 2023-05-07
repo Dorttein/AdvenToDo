@@ -1,0 +1,167 @@
+<div id="id_lista_tareas">
+    <form action="POST" class="formulario_tarea">
+        <div class="fondoNegroTarea"></div>
+        <div class="tarea">
+
+            <div class="back-tarea">
+
+                <div class="icon icon-enter show-back-tarea"><div class="arrow"></div></div>
+                <!-- DEVOLVER NAME A INPUTS NORMALES -->
+                <div class="group div_name">
+                    <textarea required="true" class="input_text input_name" rows="1" maxlength="50" minlength="1" onkeypress="cancelar(event)"></textarea>
+                    <span class="hightlight"></span>
+                    <span class="bar"></span>
+                    <label class="lab_input_text">Nombre</label>
+                </div>
+
+                <label class="label_comp">
+                    <input type="checkbox" name="completed" class="input_completed">
+                    <span id="id_span_comp"></span>
+                </label>
+
+                <!-- AUMENTAR LONGITUD A 512?? HAY QUE REVISAR LAS LINEAS CON SALTOS DE LINEA -->
+                <div class="group div_details">
+                    <textarea required="true" class="input_text input_details" rows="1" maxlength="512"></textarea>
+                    <span class="hightlight"></span>
+                    <span class="bar"></span>
+                    <label class="lab_input_text">Detalles</label>
+                </div>
+
+                <label class="label_importante">
+                    <input type="checkbox" name="importante" class="input_importante" />
+                    <div class="circle">
+                        <div class="circle--inner circle--inner__1" ></div>
+                        <div class="circle--inner circle--inner__2" ></div>
+                        <div class="circle--inner circle--inner__3" ></div>
+                        <div class="circle--inner circle--inner__4" ></div>
+                        <div class="circle--inner circle--inner__5" ></div>
+                        <div class="circle--outer" ></div>
+                    </div>
+                </label>
+
+                <!-- REVISAR CON JS SI EL NUMERO ES MAYOR DE 10 -->
+                <label for="input_reward">Acciones</label>
+                <input type="number" name="reward" class="input_reward" min="0" max="10" placeholder="0">
+
+                <!-- AQUÍ IRA LA LISTA DE SUBTAREAS -->
+                <div class="div_subtareas">
+                    <h2>AQUI IRAN LAS SUBTAREAS</h2>
+                </div>
+
+                <!-- AQUÍ IRA EL SELECTOR PARA REPETIR -->
+                <div class="div_repetir">
+                    <h2>AQUI IRÁ LA OPCION DE REPETIR</h2>
+                </div>
+
+
+                <label for="input_creacion">Fecha Creacion</label>
+                <input type="date" name="creacion" class="input_creacion" readonly>
+                
+                <label for="input_limite">Fecha Limite</label>
+                <input type="date" name="limite" class="input_limite">
+
+
+
+            </div>
+
+            <div class="front-tarea">
+
+                <div class="icon icon-enter show-front-tarea"><div class="arrow"></div></div>
+
+                <label for="input_reward">Acciones</label>
+                <label for="input_creacion">Fecha Creacion</label>
+                <label for="input_limite">Fecha Limite</label>
+
+
+                <label class="label_comp">
+                    <input type="checkbox" name="completed" class="input_completed">
+                    <span id="id_span_comp"></span>
+                </label>
+
+                <input type="number" name="reward" class="input_reward" min="0" max="10" placeholder="0">
+                
+                <div class="group div_name">
+                    <!-- <input type="text" required="true" class="input_text input_name"> -->
+                    <textarea required="true" class="input_text input_name" rows="1" maxlength="50" minlength="1" onkeypress="cancelar(event)"></textarea>
+                    <span class="hightlight"></span>
+                    <span class="bar"></span>
+                    <label class="lab_input_text">Nombre</label>
+                </div>
+
+                <input type="date" name="creacion" class="input_creacion" readonly>
+
+                <input type="date" name="limite" class="input_limite">
+
+                <label class="label_importante">
+                    <input type="checkbox" name="importante" class="input_importante" />
+                    <div class="circle">
+                        <div class="circle--inner circle--inner__1" ></div>
+                        <div class="circle--inner circle--inner__2" ></div>
+                        <div class="circle--inner circle--inner__3" ></div>
+                        <div class="circle--inner circle--inner__4" ></div>
+                        <div class="circle--inner circle--inner__5" ></div>
+                        <div class="circle--outer" ></div>
+                    </div>
+                </label>
+            </div><!-- CIERRE DE FRONT TAREA -->
+        </div>
+
+
+        <!-- AQUI VAN MAS TAREAS DE LA MISMA LISTA -->
+
+        <div class="tarea">
+
+            <div class="back-tarea">
+
+                <div class="icon icon-enter show-back-tarea"><div class="arrow"></div></div>
+
+
+
+            </div>
+
+            <div class="front-tarea">
+
+                <div class="icon icon-enter show-front-tarea"><div class="arrow"></div></div>
+
+                <label for="input_reward">Acciones</label>
+                <label for="input_creacion">Fecha Creacion</label>
+                <label for="input_limite">Fecha Limite</label>
+
+
+                <label class="label_comp">
+                    <input type="checkbox" name="completed" class="input_completed">
+                    <span id="id_span_comp"></span>
+                </label>
+
+                <input type="number" name="reward" class="input_reward" min="0" max="10" placeholder="0">
+                
+                <div class="group div_name">
+                    <!-- <input type="text" required="true" class="input_text input_name"> -->
+                    <textarea required="true" class="input_text input_name" rows="1" maxlength="50" minlength="1" onkeypress="cancelar()"></textarea>
+                    <span class="hightlight"></span>
+                    <span class="bar"></span>
+                    <label class="lab_input_text">Nombre</label>
+                </div>
+
+                <input type="date" name="creacion" class="input_creacion" readonly>
+
+                <input type="date" name="limite" class="input_limite">
+
+                <label class="label_importante">
+                    <input type="checkbox" name="importante" class="input_importante" />
+                    <div class="circle">
+                        <div class="circle--inner circle--inner__1" ></div>
+                        <div class="circle--inner circle--inner__2" ></div>
+                        <div class="circle--inner circle--inner__3" ></div>
+                        <div class="circle--inner circle--inner__4" ></div>
+                        <div class="circle--inner circle--inner__5" ></div>
+                        <div class="circle--outer" ></div>
+                    </div>
+                </label>
+            </div>	
+        </div>
+
+
+        
+    </form>
+</div>

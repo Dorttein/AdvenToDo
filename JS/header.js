@@ -1,4 +1,4 @@
-import {Tarea} from '../models/objetos.js';
+import {Tarea} from '/proyecto/JS/objetos.js';
 
 $(document).ready(function () {
     $("body").addClass("home_is_visible");
@@ -24,6 +24,8 @@ $(document).ready(function () {
     });
 
 
+
+
     // este codigo es de prueba
 
     // let subtarea=[
@@ -44,6 +46,7 @@ $(document).ready(function () {
     // console.log(tarea.get_important);
 
 
+    
 
 });
 
