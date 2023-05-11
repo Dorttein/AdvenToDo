@@ -4,7 +4,7 @@
     $conectar = $conexion->conectar();
 
     $ID_user = $_POST['ID_user'];
-    $ID_user = 17;
+    //$ID_user = 17;
     
     $params = array(
         ":ID_user" => $ID_user

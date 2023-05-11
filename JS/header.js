@@ -1,6 +1,7 @@
-import {Tarea} from '/proyecto/JS/objetos.js';
+import { equiparObjetos } from "/proyecto/JS/funciones.js";
 
 $(document).ready(function () {
+	// window.alert('ESTA PÁGINA ESTÁ EN DESARROLLO. SI SE ENCUENTRA ALGUN ERROR AVISAR AL SER SUPERIOR.DE MOMENTO LA PÁGINA SOLO SE VE BIEN EN ORDENADOR. NO ME HAGO RESPONSABLE DE CÓMO SE VE EN MOVIL (AUN)NO PONGAIS CONTRASEÑAS SENSIBLES. NO ME HAGO RESPONSABLE DE POSIBLES PROBLEMAS.PARA ELIMINAR UNA CUENTA CONTACTAD CON EL SER SUPERIOR');
     $("body").addClass("home_is_visible");
 
     $(".button").on("click", function () {
@@ -23,27 +24,7 @@ $(document).ready(function () {
         $("#cbox").prop("checked", false);        
     });
 
-
-
-
-    // este codigo es de prueba
-
-    // let subtarea=[
-    //     "Ir al baño",
-    //     "Echar pasta",
-    //     "Cepillar 2 minutos"
-    // ];
-
-    // let ahora = new Date();
-    // let luego = ahora+365;
-
-    // let tarea= new Tarea(
-    //     1,"Dientes","Lavarse los dientes",false,
-    //     subtarea,ahora,luego,0,true,1,0);
-    // console.log(tarea.get_ID);
-    // console.log(tarea.get_nombre);
-    // console.log(tarea.get_detail);
-    // console.log(tarea.get_important);
+    $("#id_enlace_tareas").on("click", equiparObjetos);
 
 
     

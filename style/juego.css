@@ -1,0 +1,232 @@
+
+#id_juegoGrande{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+
+
+.hp{
+    width: 30%;
+}
+#id_hpEne{
+    margin-left: auto;
+}
+
+
+#id_fight{
+    display: flex;
+    flex-basis: 100%;
+    margin-top: 10%;
+}
+
+/*PERSONAJE*/
+#id_char{
+    position: absolute;
+    max-width: 9.5%;
+    transform: translate(35%, -1%);
+}
+
+/*ENEMIGOS*/
+#id_ene{
+    max-width: 20%;
+    height: auto;
+    margin-right: 5%;
+    margin-left: auto;
+    object-fit: contain;
+    align-self: flex-end;
+}
+/*TODO: SI ES UN ALIEN max-width: 40% */
+
+/*OBJETOS*/
+.obj{
+    position: absolute;
+    max-width: 9%;
+    z-index: 20;
+}
+
+.weapon1{transform: translate(115%, 150%);}
+.weapon2{transform: translate(123%, 36%);}
+.weapon3{transform: translate(107%, 41%);}
+.weapon4{transform: translate(135%, 65%) scale(1.6);}
+.weapon5{transform: translate(99%, 48%);}
+.weapon6{transform: translate(134%, 32%) scale(1.4);}
+.weapon7{transform: translate(110%, 60%) scale(1.2);}
+.weapon8{transform: translate(110%, 53%) scale(1.3);}
+.weapon9{transform: translate(105%, 120%) scale(.7);}
+.weapon10{transform: translate(117%, 35%) scale(1.2);}
+
+.helmet11{transform: translate(38%, -33%) scale(.8);}
+.helmet12{transform: translate(37%, -36%) scale(0.7);}
+.helmet13{transform: translate(37%, -46%) scale(0.7);}
+.helmet14{transform: translate(38%, -56%) scale(.8);}
+.helmet15{transform: translate(40%, -40%) scale(.63);}
+.helmet16{transform: translate(39%, -55%) scale(.65);}
+.helmet17{transform: translate(39%, -21%) scale(.65);}
+.helmet18{transform: translate(36%, -67%) scale(1.27);}
+.helmet19{transform: translate(38%, -32%) scale(.7);}
+.helmet20{transform: translate(40%, -42%) scale(1.1);}
+
+.shield21, .shield23, .shield25{transform: translate(-8%, 80%);}
+.shield22{transform: translate(-2%, 67%) scale(.9);}
+.shield24{transform: translate(-7%, 27%) scale(.8);}
+.shield26{transform: translate(-6%, 18%) scale(.9);}
+.shield27{transform: translate(-2%, 60%);}
+.shield28{transform: translate(0%, 75%) scale(1.2);}
+.shield29{transform: translate(-7%, 25%) scale(.9);}
+.shield30{transform: translate(-4%, 65%) scale(1.2);}
+
+/*BOTONES ACCIONES*/
+#id_game{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.btn_action{
+    height: 3em;
+    width: 8em;
+    border-radius: 5px;
+}
+
+#id_btn_attack{
+    background-color: rgb(219, 34, 34);
+    border-color: rgb(131, 0, 0);
+    box-shadow: 3px 3px 10px 0px rgba(92, 17, 17, 1);
+}
+#id_btn_attack:hover{
+    background-color: rgb(131, 0, 0);
+    color: #ebebeb;
+}
+#id_btn_defend{
+    background-color: rgb(252, 178, 42);
+    border-color: rgb(153, 99, 0);
+    box-shadow: 3px 3px 10px 0px rgba(59, 62, 1, 1);
+}
+#id_btn_defend:hover{
+    background-color: rgb(153, 99, 0);
+    color: #ebebeb;
+}
+#id_btn_heal{
+    background-color: rgb(52, 238, 52);
+    border-color: rgb(0, 107, 0);
+    box-shadow: 3px 3px 10px 0px rgba(2, 62, 1, 1);
+}
+#id_btn_heal:hover{
+    background-color: rgb(0, 107, 0);
+    color: #ebebeb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ANIMACIONES*/
+
+/*PERSONAJE PEGA*/
+.attack {
+    -webkit-animation-name: slideOutRight;
+            animation-name: slideOutRight;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes slideOutRight {
+    0% {
+        /* -webkit-transform: translateX(0);
+                transform: translateX(0); */
+                left: 6%;
+    }
+    50%{
+        /* -webkit-transform: translateX(150%);
+                transform: translateX(150%); */
+                left: 25%;
+    }
+    100% {
+        /* -webkit-transform: translateX(0);
+                transform: translateX(0); */
+                left: 6%;
+    }
+}
+@keyframes slideOutRight {
+    0% {
+        /* -webkit-transform: translateX(0);
+                transform: translateX(0); */
+                left: 6%;
+    }
+    50%{
+        /* -webkit-transform: translateX(150%);
+                transform: translateX(150%); */
+                left: 25%;
+    }
+    100% {
+        /* -webkit-transform: translateX(0);
+                transform: translateX(0); */
+                left: 6%;
+    }
+} 
+
+/*ENEMIGO GOLPEADO*/
+/*TODO: ES UNA CLASE QUE HAY QUE AÑADIRLE A LA ETIQUETA CUANDO ES GOLPEADO.*/
+.shake {
+    -webkit-animation-name: shake;
+            animation-name: shake;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+                transform: translate3d(10px, 0, 0);
+    }
+}
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+                transform: translate3d(10px, 0, 0);
+    }
+} 
+
+
+
+
+
+
+
+
+
+

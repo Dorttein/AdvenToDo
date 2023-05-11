@@ -1,0 +1,94 @@
+#id_lista_objetos h1{
+    margin-left: 41%;
+}
+
+
+
+/*PARTE DE LOS OBJETOS EQUIPADOS*/
+
+
+
+
+
+
+
+
+
+
+/*PARTE DE TODOS LOS OBJETOS*/
+
+.recuadro{
+    width: 19%;
+}
+
+.objetos{
+    position: absolute;
+    width: 7%;
+    transform: translate(-170%, 60%);
+    cursor: pointer;
+}
+
+.equiped{
+    filter: grayscale(60%);
+}
+
+.locked{
+    filter: brightness(0%) contrast(100%);
+}
+
+.arma1{
+    width: 9%;
+    transform: translate(-140%, 115%);
+}
+.arma4{
+    transform: translate(-170%, 100%);
+}
+.arma7{
+    transform: translate(-170%, 75%);
+}
+.arma9{
+    transform: translate(-170%, 115%);
+}
+
+.cascos{
+    transform: translate(-170%, 85%);
+}
+.casco13{
+    transform: translate(-170%, 100%);
+}
+.casco15{
+    transform: translate(-170%, 100%);
+}
+.casco17{
+    transform: translate(-170%, 65%);
+}
+.casco18{
+    width: 8.5%;
+    transform: translate(-148.5%, 115%);
+}
+.casco19{
+    width: 6%;
+    transform: translate(-190%, 65%);
+}
+
+.escudo22{
+    transform: translate(-170%, 52%);
+}
+.escudo24{
+    width: 4%;
+    transform: translate(-260%, 55%);
+}
+.escudo26{
+    width: 3.5%;
+    transform: translate(-290%, 60%);
+}
+.escudo27{
+    transform: translate(-170%, 45%);
+}
+.escudo28{
+    transform: translate(-170%, 70%);
+}
+.escudo29{
+    width: 4%;
+    transform: translate(-255%, 52%);
+}

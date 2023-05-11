@@ -216,9 +216,9 @@ export function escribirListas(){
                     $(botonLista).appendTo(`.lista-${response[i]["ID"]} .back-lista`);
                 }
             }
-            /* BOTON PARA ELIMINAR LISTAS */
 
-            $(".id_contenido_principal").on("click",".delete_lista",function (e) { 
+            /* BOTON PARA ELIMINAR LISTAS */
+            $(".delete_lista").click(function (e) { 
                 // console.log($(this).attr("class").match(/\d+/)[0]);
                 $.ajax({
 					type: "POST",
@@ -264,6 +264,7 @@ export function funcionesListas(){
 	});
 
 	$(".content").on("click",".boton-back-lista",function (e) {
+		console.log(e.target);
 		$(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
 		$(e.target).parent("div").css("display", "none");
 		$(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
@@ -275,6 +276,23 @@ export function funcionesListas(){
 		$(e.target).parent("div").parent("div").css("z-index", "");
 		$(".fondoNegroLista").hide();
 	});
+
+    /*DAR LA VUELTA AL PULSAR EL FONDO GRIS*/
+	$(".content").on("click",".fondoNegroLista",function () {
+    	$(".boton-back-lista").parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
+		$(".boton-back-lista").parent("div").css("display", "none");
+		$(".boton-back-lista").parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
+
+		$(".boton-back-lista").parent("div").parent("div").css("position", "static");
+		$(".boton-back-lista").parent("div").parent("div").css("width", "");
+		$(".boton-back-lista").parent("div").parent("div").css("height", "");
+		$(".boton-back-lista").parent("div").parent("div").css("margin-left", "");
+		$(".boton-back-lista").parent("div").parent("div").css("z-index", "");
+
+		$("#id_new_lista").css("display", "none");
+
+		$(".fondoNegroLista").hide();
+    });
 
 	// ABRIR MENÚ PARA CREAR NUEVA TAREA
 	$(".content").on("click",".btn-tarea",function (e) {
@@ -475,6 +493,21 @@ export function funcionesTareas(){
 		$(e.target).parent("div").parent("div").css("height", "");
 		$(e.target).parent("div").parent("div").css("margin-left", "");
 		$(e.target).parent("div").parent("div").css("z-index", "");
+		$(".fondoNegroTarea").hide();
+    });
+
+	$(".content").on("click",".fondoNegroTarea",function (e) {
+    	$(".boton-back-tarea").parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
+		$(".boton-back-tarea").parent("div").css("display", "none");
+		$(".boton-back-tarea").parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
+		$(".boton-back-tarea").parent("div").parent("div").css("position", "static");
+		$(".boton-back-tarea").parent("div").parent("div").css("width", "");
+		$(".boton-back-tarea").parent("div").parent("div").css("height", "");
+		$(".boton-back-tarea").parent("div").parent("div").css("margin-left", "");
+		$(".boton-back-tarea").parent("div").parent("div").css("z-index", "");
+
+		$(".new_tarea").css("display", "none");
+
 		$(".fondoNegroTarea").hide();
     });
 
@@ -687,7 +720,7 @@ export function login(){
 	$.ajax({
 		type: "POST",
 		url: "https://localhost/proyecto/PHP/selects/usuario_select.php",
-		data: "user=" + encodeURIComponent(user) + "&passwd=" + encodeURIComponent(passwd)  + "&nocache=" + Math.random(),
+		data: "user=" + encodeURIComponent(user) + "&passwd=" + encodeURIComponent(passwd) + "&nocache=" + Math.random(),
 		dataType: "json",
 		success: function (response) {
 			if (response.length != 0) {
@@ -701,6 +734,8 @@ export function login(){
 				$("#id_btn_logout").removeAttr("hidden");
 				$(".reg").remove();
 				reescribir();
+				funcionesListas();
+				funcionesTareas();
 				$(".home_is_visible").removeClass("nav_is_visible");
 			}else{
 				$("#id_user_nf").html("Usuario erroneo");
@@ -717,3 +752,33 @@ export function logout(){
 	document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 	location.reload();
 }
+
+export function equiparObjetos(){
+	$.ajax({
+		type: "POST",
+		url: "https://localhost/proyecto/PHP/selects/equiped_select.php",
+		data: "user=" + encodeURIComponent(getCookie("user")[0]) + "&nocache=" + Math.random(),
+		dataType: "json",
+		success: function (response) {
+			$("#id_equip").empty();
+			$("#id_equip").append('<img src="photo/Jose.png" id="id_char" alt="Character">');
+			for(let i=0;i<response.length;i++){
+				if(response[i]["ID_object"]<11){
+					$(`<img src="photo/Armas/${response[i]["ID_object"]}.png" id="id_weap" class="obj weapon weapon${response[i]["ID_object"]}" alt="Weapon"></img>`).insertBefore("#id_char");
+				}
+				if(response[i]["ID_object"]>10 && response[i]["ID_object"]<21){
+					$(`<img src="photo/Cascos/${response[i]["ID_object"]}.png" id="id_helm" class="obj helmet helmet${response[i]["ID_object"]}" alt="Helmet"></img>`).insertBefore("#id_char");
+				}
+				if(response[i]["ID_object"]>20){
+					$(`<img src="photo/Escudos/${response[i]["ID_object"]}.png" id="id_shie" class="obj shield shield${response[i]["ID_object"]}" alt="Shield"></img>`).insertBefore("#id_char");
+				}
+			}
+		},
+		error: function(xhr, status, error){
+			console.log(xhr.responseText);
+			window.alert("Error: " + error);
+		}
+	});
+}
+
+

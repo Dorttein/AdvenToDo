@@ -693,7 +693,7 @@ svg:hover span, svg:hover .confirm{
 #id_new_lista #id_div_nueva_lista, .new_tarea #id_div_nueva_tarea{
     margin-left: 0%;
     margin-top: 0%;
-    transform: translate(50%, 50%);
+    transform: translate(50%, 0%);
     width: 2em;
     height: 2em;
 }
@@ -754,7 +754,7 @@ svg:hover span, svg:hover .confirm{
 #id_juegoGrande{
     width: 55%;
     height: 80vh;
-    background-color:chocolate;
+    /* background-color:chocolate; */
     margin-right: 2%;
 }
 

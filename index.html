@@ -11,19 +11,17 @@
 	<!-- EL LOGIN DEBE CARGARSE ANTES QUE EL HEADER -->
     <script src="JS/login.js" type="module"></script>
     <script src="JS/header.js" type="module"></script>
-    <!-- <script src="JS/crearListas.js" type="module"></script> -->
 	
     <script src="JS/listas.js" type="module"></script>
+
+    <script src="JS/combate.js" type="module"></script>
+    <script src="JS/objetos.js" type="module"></script>
 	
 	<link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/registro.css">
     <link rel="stylesheet" href="style/listas.css">
-	
-	<!-- PRUEBA -->
-
-	<script>	//IMPIDE EL USO DE INTROS EN LOS NOMBRES DE LAS TAREAS. PROBABLEMENTE NO LO NECESITE
-		function cancelar(e) {if (e.which === 13 && !e.shiftKey) {e.preventDefault();return false;}}
-	</script>
+    <link rel="stylesheet" href="style/juego.css">
+    <link rel="stylesheet" href="style/objetos.css">
 
 </head>
 <body>
@@ -37,14 +35,14 @@
 	<nav>
 		<ul>
 		<li>
-			<a href='home_is_visible'>Tareas</a>
+			<a href='home_is_visible' id="id_enlace_tareas">Tareas</a>
 		</li>
 		<!-- TODO: ESTE SOLO APARECERÁ SI ESTÁS EN MOVIL -->
 		<li>
 			<a class="mobile" href='aboutus_is_visible'>Juego</a>
 		</li>
 		<li>
-			<a href='clients_is_visible'>Objetos</a>
+			<a href='clients_is_visible' id="id_enlace_objetos">Objetos</a>
 		</li>
 		<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESION 
 			<li class="reg"><a href='contactus_is_visible'>Registrarse</a></li> 
@@ -85,7 +83,28 @@
     <div class='content home'> <!-- ESTE DIV CONTIENE TODAS LAS LISTAS. AL ABRIR UNA LISTA SE ABRE OTRO DIV CON SUS TAREAS -->
 		<div class="fondoNegroLista"></div>
 
-		<div id="id_juegoGrande">AQUI VA EL JUEGO EN TAMANO GRANDE</div>
+		<section id="id_juegoGrande">
+
+			<div id="id_fight">
+				<div id="id_equip">
+
+				</div>
+				<img src="photo/Enemigos/Zombie.png" id="id_ene" alt="Enemy">
+			</div>
+
+			<div id="id_game">
+
+				<button id="id_btn_attack" class="btn_action">Attack</button>
+
+        		<button id="id_btn_defend" class="btn_action">Defend</button>
+
+        		<button id="id_btn_heal" class="btn_action">Heal</button>
+				
+			</div>
+
+		</section>
+
+
 
 		<section id="id_contenido_principal">
 			<!-- AQUÍ SE AÑADEN LAS LISTAS AUTOMÁTICAMENTE DESDE /JS/listas.js -->
@@ -130,13 +149,21 @@
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
     </div>
     <div class='content clients'>
-        <h1>Objetos</h1>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-    </div>
+
+        
+		<div id="id_lista_objetos">
+
+			
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	</div>
+
 	<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESIÓN -->
     <div class='content contactus'>        
 		<div class="registro">
