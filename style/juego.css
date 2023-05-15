@@ -1,20 +1,27 @@
 
-#id_juegoGrande{
+#id_juego{
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
 }
 
+#id_accionesRestantes{
+    padding: 4px 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
+#id_vidas{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
 
 .hp{
     width: 30%;
 }
-#id_hpEne{
-    margin-left: auto;
-}
-
 
 #id_fight{
     display: flex;
@@ -38,7 +45,6 @@
     object-fit: contain;
     align-self: flex-end;
 }
-/*TODO: SI ES UN ALIEN max-width: 40% */
 
 /*OBJETOS*/
 .obj{
@@ -52,7 +58,7 @@
 .weapon3{transform: translate(107%, 41%);}
 .weapon4{transform: translate(135%, 65%) scale(1.6);}
 .weapon5{transform: translate(99%, 48%);}
-.weapon6{transform: translate(134%, 32%) scale(1.4);}
+.weapon6{transform: translate(134%, 40%) scale(1.4);}
 .weapon7{transform: translate(110%, 60%) scale(1.2);}
 .weapon8{transform: translate(110%, 53%) scale(1.3);}
 .weapon9{transform: translate(105%, 120%) scale(.7);}
@@ -77,6 +83,52 @@
 .shield28{transform: translate(0%, 75%) scale(1.2);}
 .shield29{transform: translate(-7%, 25%) scale(.9);}
 .shield30{transform: translate(-4%, 65%) scale(1.2);}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 750px) {
+    #id_juego{
+        width: 100%;
+    }
+
+    #id_char{transform: translate(84%, 30%) scale(1.8);}
+
+    .weapon1{transform: translate(115%, 150%);}
+    .weapon2{transform: translate(245%, 90%) scale(1.8);}
+    .weapon3{transform: translate(225%, 95%) scale(1.8);}
+    .weapon4{transform: translate(263%, 144%) scale(2.8)}
+    .weapon5{transform: translate(211%, 121%) scale(2);}
+    .weapon6{transform: translate(257%, 105%) scale(2.4);}
+    .weapon7{transform: translate(232%, 135%) scale(2.2);}
+    .weapon8{transform: translate(231%, 113%) scale(2.3);}
+    .weapon9{transform: translate(218%, 232%) scale(1.2);}
+    .weapon10{transform: translate(235%, 90%) scale(2);}
+    
+    .helmet11{transform: translate(87%, -60%) scale(1.6);}
+    .helmet12{transform: translate(86%, -59%) scale(1.4);}
+    .helmet13{transform: translate(88%, -76%) scale(1.3);}
+    .helmet14{transform: translate(89%, -92%) scale(1.6);}
+    .helmet15{transform: translate(91%, -76%) scale(1.3);}
+    .helmet16{transform: translate(91%, -88%) scale(1.3);}
+    .helmet17{transform: translate(92%, -21%) scale(1.2);}
+    .helmet18{transform: translate(88%, -113%) scale(2.25);}
+    .helmet19{transform: translate(89%, -38%) scale(1.3);}
+    .helmet20{transform: translate(93%, -60%) scale(1.9);}
+    
+    .shield21, .shield23, .shield25{transform: translate(0%, 166%) scale(1.8);}
+    .shield22{transform: translate(10%, 136%) scale(1.6);}
+    .shield24{transform: translate(5%, 83%) scale(1.7);}
+    .shield26{transform: translate(0%, 66%) scale(1.65);}
+    .shield27{transform: translate(16%, 132%) scale(1.8);}
+    .shield28{transform: translate(10%, 141%) scale(2.2);}
+    .shield29{transform: translate(12%, 83%) scale(1.7);}
+    .shield30{transform: translate(11%, 130%) scale(2);}
+
+
+
+}
+
+
+
 
 /*BOTONES ACCIONES*/
 #id_game{
@@ -220,13 +272,3 @@
                 transform: translate3d(10px, 0, 0);
     }
 } 
-
-
-
-
-
-
-
-
-
-

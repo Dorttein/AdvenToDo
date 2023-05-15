@@ -164,7 +164,7 @@
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: 1fr 1fr;
     justify-items: start;
-    width: max-content;
+    width: 80%;
 }
 
 .front-tarea .icon{
@@ -604,9 +604,7 @@ svg:hover span, svg:hover .confirm{
     background-color: grey;
     position: fixed;
     display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -200%);
+    transform: translate(-50%, 100%);
     z-index: 9999;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -622,7 +620,7 @@ svg:hover span, svg:hover .confirm{
     justify-items: start;
     width: fit-content;
     width: 100%;
-    transform: translate(-50%, -100%);
+    transform: translate(-5%, 0%);
 }
 
 .new_tarea .circle {
@@ -666,28 +664,9 @@ svg:hover span, svg:hover .confirm{
     grid-area: 1/9/1/12;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #formulario_new_lista .div_name_lista{
-    width: 100%;
     margin-top: -5%;
-    margin-left: 35%;
+    margin-left: 15%;
 }
 
 #id_new_lista #id_div_nueva_lista, .new_tarea #id_div_nueva_tarea{
@@ -703,7 +682,6 @@ svg:hover span, svg:hover .confirm{
 }
 
 
-
 #id_btn_lista, .boton_new_tarea{
     background-color: #4c4eaf;
     color: white;
@@ -712,7 +690,6 @@ svg:hover span, svg:hover .confirm{
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    transform: translate(100%, 0%);
 } 
 .boton_new_tarea{
     grid-area: 1/-1/1/-1;
@@ -751,7 +728,7 @@ svg:hover span, svg:hover .confirm{
 
 
 
-#id_juegoGrande{
+#id_juego{
     width: 55%;
     height: 80vh;
     /* background-color:chocolate; */
@@ -761,10 +738,28 @@ svg:hover span, svg:hover .confirm{
 
 
 
+    @media only screen and (max-width: 750px) {
+        #id_new_lista, .new_tarea{
+            font-size: 1em;
+        }
 
+        #id_new_lista #id_div_nueva_lista, #id_new_lista #id_div_nueva_lista{
+            transform: translate(0%, 0%);
+        }    
+        #id_btn_lista, .boton_new_tarea{
+            padding: 12px 12px;
+        }
+    }
 	/* Small devices (portrait tablets and large phones, 600px and up) */
-	@media only screen and (min-width: 600px) {
+	@media only screen and (max-width: 750px) {
+        #id_contenido_principal {
+            width: 100%;
+        }
 
+        #id_new_lista, .new_tarea{
+            width: 95%;
+            transform: translate(-5%, 0%);
+        }
     }
 	/* Medium devices (landscape tablets, 768px and up) */
 	@media only screen and (min-width: 768px) {

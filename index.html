@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdvenToDo</title>
 
-
     <script src="JS/lib/jquery-3.6.3.js"></script>
 	<!-- EL LOGIN DEBE CARGARSE ANTES QUE EL HEADER -->
     <script src="JS/login.js" type="module"></script>
@@ -32,83 +31,54 @@
 		</div>
     </div>
 	<div class='menu'>
-	<nav>
-		<ul>
-		<li>
-			<a href='home_is_visible' id="id_enlace_tareas">Tareas</a>
-		</li>
-		<!-- TODO: ESTE SOLO APARECERÁ SI ESTÁS EN MOVIL -->
-		<li>
-			<a class="mobile" href='aboutus_is_visible'>Juego</a>
-		</li>
-		<li>
-			<a href='clients_is_visible' id="id_enlace_objetos">Objetos</a>
-		</li>
-		<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESION 
-			<li class="reg"><a href='contactus_is_visible'>Registrarse</a></li> 
-	 	-->
-		<li id="id_li_form">
-			<form method="post" id="id_form_login">
-			<br>
-				<div class="group">
-					<input type="text" required="true" id="id_login" class="input_text">
-					<span class="hightlight"></span>
-					<span class="bar"></span>
-					<label class="lab_input_text">Login</label>
-				</div>
-				<br>
-				<br>
-				<div class="group reg">
-					<input type="password" required="true" id="id_passwd" class="input_text">
-					<span class="hightlight"></span>
-					<span class="bar"></span>
-					<label class="lab_input_text">Contraseña</label>
-				</div><br>
-				<label id="id_user_nf"></label><br>
-				<input type="button" value="LOGIN" id="id_btn_login" class="reg">
-				<!-- <button id="id_btn_login">LOGIN</button> -->
-			</form>
-		</li>
-		<input type='button' value='Cerrar Sesion' id='id_btn_logout' class='logout' hidden>
-		</ul>
-	</nav>
+		<nav>
+			<ul>
+				<li>
+					<a href='home_is_visible' id="id_enlace_tareas">Inicio</a>
+				</li>
+				<!-- ESTO SOLO APARECE SI ESTÁS EN MOVIL -->
+				<li><a class="mobile" href='aboutus_is_visible' id="id_enlace_objetos" hidden>Juego</a></li>
+				<li>
+					<a href='clients_is_visible' id="id_enlace_objetos">Objetos</a>
+				</li>
+				<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESION 
+					<li class="reg"><a href='contactus_is_visible'>Registrarse</a></li> 
+				-->
+				<li id="id_li_form">
+					<form method="post" id="id_form_login">
+						<br>
+						<div class="group">
+							<input type="text" required="true" id="id_login" class="input_text" autocomplete="off">
+							<span class="hightlight"></span>
+							<span class="bar"></span>
+							<label class="lab_input_text">Login</label>
+						</div>
+						<br>
+						<br>
+						<div class="group reg">
+							<input type="password" required="true" id="id_passwd" class="input_text">
+							<span class="hightlight"></span>
+							<span class="bar"></span>
+							<label class="lab_input_text">Contraseña</label>
+						</div><br>
+						<label id="id_user_nf"></label><br>
+						<button type="button" id="id_btn_login" class="reg">LOGIN</button>
+					</form>
+				</li>
+				<input type='button' value='Cerrar Sesion' id='id_btn_logout' class='logout' hidden>
+			</ul>
+		</nav>
 	</div>
-      <header>
-		  <h1>AdvenToDo</h1> 
-		  <h2>por Sergio Gomez</h2>
-	  </header>
-      
-      
-      
+
+    <header>
+		<h1>AdvenToDo</h1> 
+		<h2>por Sergio Gomez</h2>
+	</header>
+    
     <div class='content home'> <!-- ESTE DIV CONTIENE TODAS LAS LISTAS. AL ABRIR UNA LISTA SE ABRE OTRO DIV CON SUS TAREAS -->
 		<div class="fondoNegroLista"></div>
-
-		<section id="id_juegoGrande">
-
-			<div id="id_fight">
-				<div id="id_equip">
-
-				</div>
-				<img src="photo/Enemigos/Zombie.png" id="id_ene" alt="Enemy">
-			</div>
-
-			<div id="id_game">
-
-				<button id="id_btn_attack" class="btn_action">Attack</button>
-
-        		<button id="id_btn_defend" class="btn_action">Defend</button>
-
-        		<button id="id_btn_heal" class="btn_action">Heal</button>
-				
-			</div>
-
-		</section>
-
-
-
 		<section id="id_contenido_principal">
 			<!-- AQUÍ SE AÑADEN LAS LISTAS AUTOMÁTICAMENTE DESDE /JS/listas.js -->
-
 			<!-- CIRCULO PARA AÑADIR LISTAS -->
 			<div id="id_new_lista">
 				<div id="id_div_nueva_lista">
@@ -118,7 +88,7 @@
 				</div>
 				<form action="POST" id="formulario_new_lista">
 					<div class="group div_name_lista">
-						<input type="text" required="true" class="input_text input_name_lista" maxlength="50" minlength="1">
+						<input type="text" required="true" class="input_text input_name_lista" maxlength="50" minlength="1" autocomplete="off">
 						<span class="hightlight"></span>
 						<span class="bar"></span>
 						<label class="lab_input_text">Nombre Lista</label>
@@ -131,37 +101,16 @@
 					<div class="btn__icon">+</div>
 				</div>
 			</div>
-
 		</section>
     </div>
-
-
-
-
-
-
+	
     <div class='content aboutus'>
-        <h1>Juego</h1>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend %leo</p>
+		<!-- AQUI VA EL JUEGO EN VERSION MOVIL -->
     </div>
     <div class='content clients'>
-
-        
+		<!-- AQUÍ VA LA LISTA DE LOS OBJETOS PARA EQUIPAR Y DESEQUIPAR -->
 		<div id="id_lista_objetos">
-
-			
 		</div>
-	
-	
-	
-	
-	
-	
-	
 	</div>
 
 	<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESIÓN -->
@@ -170,7 +119,7 @@
 			<form method="post" id="id_form_registro">
 			  <h2>Registro de usuario</h2>
 			  <label for="usuario">Usuario:</label>
-			  <input type="text" id="usuario" name="usuario">
+			  <input type="text" id="usuario" name="usuario" autocomplete="off">
 			  <label for="password">Contraseña:</label>
 			  <input type="password" id="password" name="password">
 			  <label for="confirm-password">Confirmar contraseña:</label>
@@ -179,6 +128,5 @@
 			</form>
 		</div>
 	</div>
-
 </body>
 </html>

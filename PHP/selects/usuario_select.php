@@ -25,6 +25,5 @@
             $json[] = $usuario;
         }
     }
-    
     echo json_encode($json);
 ?>

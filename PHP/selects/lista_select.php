@@ -4,7 +4,6 @@
     $conectar = $conexion->conectar();
 
     $ID_user = $_POST['ID_user'];
-    // $ID_user = 9;
     
     $params = array(
         ":ID_user" => $ID_user
@@ -28,6 +27,5 @@
         );
         $json[] = $tareas;
     }
-    
     echo json_encode($json);
 ?>

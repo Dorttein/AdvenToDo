@@ -7,7 +7,7 @@ export function crearCookie(datos) {
 	// Convertir el objeto a una cadena de texto
 	let datosString = JSON.stringify(datosObj);
 	// Guardar la cadena de texto en una cookie
-	document.cookie = `user=${encodeURIComponent(datosString)}; Secure`;
+	document.cookie = `user=${encodeURIComponent(datosString)};`;
 }
 
 export function getCookie(nombreCookie) {
@@ -58,7 +58,7 @@ export function escribirListas(){
 									<label for="input_limite">Fecha Limite</label>
 									<input type="number" name="reward" class="input_reward reward_" min="0" max="10" placeholder="0">
 									<div class="group div_name">
-										<input type="text" required="true" class="input_text input_name name_" maxlength="50">
+										<input type="text" required="true" class="input_text input_name name_" maxlength="50" autocomplete="off">
 										<span class="hightlight"></span>
 										<span class="bar"></span>
 										<label class="lab_input_text">Nombre</label>
@@ -112,7 +112,7 @@ export function escribirListas(){
 									<label for="input_limite">Fecha Limite</label>
 									<input type="number" name="reward" class="input_reward reward_" min="0" max="10" placeholder="0">
 									<div class="group div_name">
-										<input type="text" required="true" class="input_text input_name name_" maxlength="50">
+										<input type="text" required="true" class="input_text input_name name_" maxlength="50" autocomplete="off">
 										<span class="hightlight"></span>
 										<span class="bar"></span>
 										<label class="lab_input_text">Nombre</label>
@@ -166,7 +166,7 @@ export function escribirListas(){
 										<label for="input_limite">Fecha Limite</label>
 										<input type="number" name="reward" class="input_reward reward_" min="0" max="10" placeholder="0">
 										<div class="group div_name">
-											<input type="text" required="true" class="input_text input_name name_" maxlength="50">
+											<input type="text" required="true" class="input_text input_name name_" maxlength="50" autocomplete="off">
 											<span class="hightlight"></span>
 											<span class="bar"></span>
 											<label class="lab_input_text">Nombre</label>
@@ -264,7 +264,6 @@ export function funcionesListas(){
 	});
 
 	$(".content").on("click",".boton-back-lista",function (e) {
-		console.log(e.target);
 		$(e.target).parent("div").css("transform", "perspective( 2000px ) rotateY( 180deg )");
 		$(e.target).parent("div").css("display", "none");
 		$(e.target).parent("div").siblings("div").css("transform", "perspective( 2000px ) rotateY( 0deg )");   
@@ -362,7 +361,7 @@ export function escribirTareas(callback){
                         <div class="back-tarea">
                             <div class="icon boton-back-tarea"><img class="flecha flecha-back" src="https://localhost/proyecto/photo/flecha.png"></img></div>
                             <div class="group div_name">
-                                <input type="text" required="true" class="input_text input_name name_${response[i]["ID"]}" maxlength="50">
+                                <input type="text" required="true" class="input_text input_name name_${response[i]["ID"]}" maxlength="50" autocomplete="off">
                                 <span class="hightlight"></span>
                                 <span class="bar"></span>
                                 <label class="lab_input_text">Nombre</label>
@@ -411,7 +410,7 @@ export function escribirTareas(callback){
                             </label>
                             <input type="number" name="reward" class="input_reward reward_${response[i]["ID"]}" min="0" max="10" placeholder="0">
                             <div class="group div_name">
-                                <input type="text" required="true" class="input_text input_name name_${response[i]["ID"]}" maxlength="50">
+                                <input type="text" required="true" class="input_text input_name name_${response[i]["ID"]}" maxlength="50" autocomplete="off">
                                 <span class="hightlight"></span>
                                 <span class="bar"></span>
                                 <label class="lab_input_text">Nombre</label>
@@ -533,65 +532,58 @@ export function funcionesTareas(){
     });
 
 
-	let completedFront = $('.front-tarea .input_completed');
-	let completedBack = $('.back-tarea .input_completed');
-	completedFront.click(function() {
-		if(completedBack.prop("checked")){
-			completedFront.prop("checked", false);
-			completedBack.prop("checked", false);
-		}else{completedFront.prop("checked", true);completedBack.prop("checked", true)}
-	});
-	completedBack.click(function() {
-		if(completedFront.prop("checked")){
-			completedBack.prop("checked", false);
-			completedFront.prop("checked", false);
-		}else{completedBack.prop("checked", true);completedFront.prop("checked", true)}
-	});
-
-	let nameFront = $('.front-tarea .input_name');
-	let nameBack = $('.back-tarea .input_name');
-	nameFront.on('input', function() {
-		nameBack.val(nameFront.val());
-	});
-	nameBack.on('input', function() {
-		nameFront.val(nameBack.val());
-	});
-
-	let rewardFront = $('.front-tarea .input_reward');
-	let rewardBack = $('.back-tarea .input_reward');
-	rewardFront.on('input', function() {
-		rewardBack.val(rewardFront.val());
-	});
-	rewardBack.on('input', function() {
-		rewardFront.val(rewardBack.val());
+	$(".content").on("click", ".input_completed", function () {
+		let inputClases = $(this).attr('class').split(' ');
+		let isChecked = $(this).prop('checked');
+		$(`.${inputClases[1]}`).prop('checked', isChecked);
+		let numTarea = inputClases[1].match(/\d+/)[0];
+		if(isChecked){
+			let rewardTarea=$(`.reward_${numTarea}`).val();
+			$.ajax({
+				type: "POST",
+				url: "https://localhost/Proyecto/PHP/alters/usuario_action_update.php",
+				data: "&ID=" + encodeURIComponent(getCookie("user")[0]) + "&action=" + encodeURIComponent(rewardTarea) +
+				"&nocache=" + Math.random(),
+				dataType: "JSON",
+				success: function (response) {
+					$("#id_accionesRestantes").html(response);
+					$("#id_accionesRestantes").css("color", "");
+				},
+				error: function(xhr, status, error){
+					console.log(xhr.responseText);
+					window.alert("Error: " + error);
+				}
+			}); 
+		}
 	});
 
-	let limiteFront = $('.front-tarea .input_limite');
-	let limiteBack = $('.back-tarea .input_limite');
-	limiteFront.on('input', function() {
-		limiteBack.val(limiteFront.val());
-	});
-	limiteBack.on('input', function() {
-		limiteFront.val(limiteBack.val());
+	$(".content").on("input", ".input_name", function () {
+		let inputClases = $(this).attr('class').split(' ');
+		let value = $(this).val();
+		$(`.${inputClases[2]}`).val(value);
 	});
 
-	let importanteFront = $('.front-tarea .input_importante');
-	let importanteBack = $('.back-tarea .input_importante');
-	importanteFront.click(function() {
-		if(importanteBack.prop("checked")){
-			importanteFront.prop("checked", false);
-			importanteBack.prop("checked", false);
-		}else{importanteFront.prop("checked", true);importanteBack.prop("checked", true)}
+	$(".content").on("input", ".input_reward", function () {
+		let inputClases = $(this).attr('class').split(' ');
+		let value = $(this).val();
+		$(`.${inputClases[1]}`).val(value);
 	});
-	importanteBack.click(function() {
-		if(importanteFront.prop("checked")){
-			importanteBack.prop("checked", false);
-			importanteFront.prop("checked", false);
-		}else{importanteBack.prop("checked", true);importanteFront.prop("checked", true)}
+
+	$(".content").on("input", ".input_limite", function () {
+		let inputClases = $(this).attr('class').split(' ');
+		let value = $(this).val();
+		$(`.${inputClases[1]}`).val(value);
+	});
+
+	$(".content").on("click", ".input_importante", function () {
+		let inputClases = $(this).attr('class').split(' ');
+		let isChecked = $(this).prop('checked');
+		$(`.${inputClases[1]}`).prop('checked', isChecked);
+
 	});
 
 	//ACTUALIZAR LA TAREA CUANDO SE CAMBIE CUALQUIER INPUT (MENOS DETALLES)
-	$("input").on("change", function() {
+	$(".content").on("change", "input", function () {
 		var numTarea = $(this).attr("class").match(/\d+/)[0];
 		let completedTarea=0;
 		if($(`.completed_${numTarea}`).prop("checked")){
@@ -599,21 +591,12 @@ export function funcionesTareas(){
 		}
 		let nombreTarea=$(`.name_${numTarea}`);
 		let detailsTarea=$(`.details_${numTarea}`);
-		let rewardTarea=$(`.reward_${numTarea}`);
-		if(rewardTarea.val()==""){
-			rewardTarea.val(0);
-		}
+		let rewardTarea=$(`.reward_${numTarea}`).val();
 		let limiteTarea=$(`.limite_${numTarea}`);
 		let importanteTarea=0;
 		if($(`.importante_${numTarea}`).prop("checked")){
 			importanteTarea=1;
 		}
-        // console.log(completedTarea); 
-        // console.log(nombreTarea.val()); 
-        // console.log(detailsTarea.val()); 
-        // console.log(rewardTarea.val()); 
-        // console.log(limiteTarea.val()); 
-        // console.log(importanteTarea); 
 		if (nombreTarea.val() === '') {
 			window.alert('Por favor, rellene todos los campos.');
 		} else {
@@ -640,7 +623,7 @@ export function funcionesTareas(){
 		}
 	});
 	//ACTUALIZAR LA TAREA SI SE CAMBIAN LOS DETALLES
-	$("textarea").on("change", function() {
+	$(".content").on("change", "textarea", function () {
 		var numTarea = $(this).attr("class").match(/\d+/)[0];
 		let completedTarea=0;
 		if($(`.completed_${numTarea}`).prop("checked")){
@@ -657,12 +640,6 @@ export function funcionesTareas(){
 		if($(`.importante_${numTarea}`).prop("checked")){
 			importanteTarea=1;
 		}
-        // console.log(completedTarea); 
-        // console.log(nombreTarea.val()); 
-        // console.log(detailsTarea.val()); 
-        // console.log(rewardTarea.val()); 
-        // console.log(limiteTarea.val()); 
-        // console.log(importanteTarea); 
 		if (nombreTarea.val() === '') {
 			window.alert('Por favor, rellene todos los campos.');
 		} else {
@@ -688,12 +665,6 @@ export function funcionesTareas(){
 			}); 
 		}
 	});
-
-
-
-
-
-
 }
 
 export function reescribir(){
@@ -736,6 +707,8 @@ export function login(){
 				reescribir();
 				funcionesListas();
 				funcionesTareas();
+				equiparObjetos();
+				escribirRecuadros();
 				$(".home_is_visible").removeClass("nav_is_visible");
 			}else{
 				$("#id_user_nf").html("Usuario erroneo");
@@ -780,5 +753,131 @@ export function equiparObjetos(){
 		}
 	});
 }
+export function escribirRecuadros(){
+    $.ajax({
+		type: "POST",
+		url: "https://localhost/proyecto/PHP/selects/object_select.php",
+		data: "user=" + encodeURIComponent(getCookie("user")[0]) + "&nocache=" + Math.random(),
+		dataType: "json",
+		success: function (response) {
+			$("#id_lista_objetos").empty();
+            for (let i = 0; i < response.length; i++) {
+                if(i==0){$("#id_lista_objetos").append('<h1>Espadas</h1>');}
+                if(i==10){$("#id_lista_objetos").append('<h1>Cascos</h1>');}
+                if(i==20){$("#id_lista_objetos").append('<h1>Escudos</h1>');}
 
+                if(response[i]["equiped"]==1){
+                    $("#id_lista_objetos").append('<img src="/proyecto/photo/Recuadro.png" class="recuadro" alt="recuadro">');
+                }else{
+                    $("#id_lista_objetos").append('<img src="/proyecto/photo/Recuadro.png" class="recuadro equiped" alt="recuadro">');
+                }
 
+                switch(response[i]["type"]){
+                    case 1:
+                        if(response[i]["locked"]==0){
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/armas/${response[i]["ID"]}.png" class="objetos armas arma${response[i]["ID"]}" alt="Armas">`);
+                        }else{
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/armas/${response[i]["ID"]}.png" class="objetos armas arma${response[i]["ID"]} locked" alt="Armas">`);
+                        }
+                        break;
+                    case 2:
+                        if(response[i]["locked"]==0){
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/cascos/${response[i]["ID"]}.png" class="objetos cascos casco${response[i]["ID"]}" alt="Cascos">`);
+                        }else{
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/cascos/${response[i]["ID"]}.png" class="objetos cascos casco${response[i]["ID"]} locked" alt="Cascos">`);
+                        }
+                        break;
+                    case 3:
+                        if(response[i]["locked"]==0){
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/escudos/${response[i]["ID"]}.png" class="objetos escudos escudo${response[i]["ID"]}" alt="Escudos">`);
+                        }else{
+                            $("#id_lista_objetos").append(`<img src="/proyecto/photo/escudos/${response[i]["ID"]}.png" class="objetos escudos escudo${response[i]["ID"]} locked" alt="Escudos">`);
+                        }
+                        break;
+                }
+            }
+		},
+		error: function(xhr, status, error){
+			console.log(xhr.responseText);
+			window.alert("Error: " + error);
+		}
+	}); 
+}
+
+export function dibujarJuego(){
+	let juego=`
+    <section id="id_juego">
+        <div id="id_fight">
+            <div id="id_equip">
+                <img src="photo/Jose.png" id="id_char" alt="Character">
+            </div>
+            <img src="photo/Enemigos/0.png" id="id_ene" alt="Enemy">
+        </div>
+        <div id="id_game">
+            <button id="id_btn_attack" class="btn_action">Attack</button>
+            <button id="id_btn_defend" class="btn_action">Defend</button>
+            <button id="id_btn_heal" class="btn_action">Heal</button>
+        </div>
+    </section>`;
+
+	$("#id_juego").remove();
+
+    if($(window).width()>750){
+		$(".mobile").hide();
+        $(juego).insertAfter(".fondoNegroLista");
+    }else{
+		$(".mobile").show();
+		// $("<li><a class='mobile' href='aboutus_is_visible'>Juego</a></li>").insertBefore("#id_li_form");
+        $(juego).appendTo(".aboutus");
+    }
+
+	/*SI EXISTE LA COOKIE COMPRUEBA LA VIDA. SI NO EXISTE PONE AMBAS A 10 POR DEFECTO */
+    if (getCookie("user").length != 0 ) {
+        $.ajax({
+            type: "POST",
+            url: "https://localhost/proyecto/PHP/selects/usuario_select_nopw.php",
+            data: "user=" + encodeURIComponent(getCookie("user")[1]) + "&nocache=" + Math.random(),
+            dataType: "json",
+            success: function (response) {
+                if (response.length != 0) {    
+                    $("#id_juego").prepend(`
+					<div id="id_vidas">
+						<img src="photo/hpEne/${Math.ceil(response[0]["HP_enemy"] / 10)}.png" id="id_hpEne" class="hp" alt="HP Enemy">
+						<span id="id_accionesRestantes">${response[0]["action"]}</span>
+						<img src="photo/hpChar/${Math.ceil(response[0]["HP_character"] / 10)}.png" id="id_hpChar" class="hp" alt="HP Character">
+					</div>
+					`);
+					$("#id_ene").attr("src", `photo/enemigos/${response[0]["ID_enemy"]}.png`);
+					if(response[0]["ID_enemy"]==1){
+                        $("#id_ene").css("max-width", "45%");
+                        $("#id_ene").css("margin-right", "0%");
+                    }else{
+						$("#id_ene").css("max-width", "20%");
+                        $("#id_ene").css("margin-right", "5%");
+					}
+                    equiparObjetos();
+                }else{
+                    $("#id_juego").prepend(`
+					<div id="id_vidas">
+						<img src="photo/hpEne/10.png" id="id_hpEne" class="hp" alt="HP Enemy">
+						<span id="id_accionesRestantes">0</span>
+						<img src="photo/hpChar/10.png" id="id_hpChar" class="hp" alt="HP Character">
+					</div>`);
+					$("#id_ene").attr("src", `photo/enemigos/0.png`);
+                }
+            },
+            error: function(xhr, status, error){
+                console.log(xhr.responseText);
+                window.alert("Error: " + error);
+            }
+        });
+    }else{
+        $("#id_juego").prepend(`
+			<div id="id_vidas">
+				<img src="photo/hpEne/10.png" id="id_hpEne" class="hp" alt="HP Enemy">
+				<span id="id_accionesRestantes">0</span>
+				<img src="photo/hpChar/10.png" id="id_hpChar" class="hp" alt="HP Character">
+			</div>
+		`);
+    }
+}

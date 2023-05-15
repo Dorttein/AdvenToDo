@@ -20,10 +20,8 @@
     $pdo->execute($params1);
 
     if ($pdo->rowCount() > 0) {
-        // Hay al menos un resultado en la consulta
         echo "0";
     } else {
-        // No hay resultados en la consulta
         $consulta2 = 'INSERT INTO `lista` (`ID`, `name`, `ID_user`) VALUES (null, :lista, :IDE);';
         $pdo = $conectar->prepare($consulta2);
         if ($pdo->execute($params2)) {
@@ -32,7 +30,4 @@
             echo "0";
         }
     }
-
-
-    
 ?>

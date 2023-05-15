@@ -1,7 +1,6 @@
-import {getCookie, crearCookie, login, logout} from '/proyecto/JS/funciones.js';
+import {getCookie, crearCookie, login, logout, dibujarJuego} from '/proyecto/JS/funciones.js';
 
 $(document).ready(function () {
-
 	if (getCookie("user").length != 0 ) {
 		// código a ejecutar si la cookie existe
 		// console.log("Cookie existe");		
@@ -9,7 +8,6 @@ $(document).ready(function () {
 		$("#id_passwd").val("");
 		$(".reg").remove();
 		$("#id_btn_logout").removeAttr("hidden");
-		
 	}else{
 		//SI EXISTE LA COOKIE NO APARECE EL BOTÓN DE REGISTRARSE
 		$("<li class='reg'><a href='contactus_is_visible'>Registrarse</a></li>").insertBefore("#id_li_form");
@@ -37,8 +35,7 @@ $(document).ready(function () {
 							$('#usuario').val('');
 							$('#password').val('');
 							$('#confirm-password').val('');
-							//TODO: HACER VOLVER A LA PÁGINA INICIAL SIN REFRESCAR LA PÁGINA.
-							//! NO SE BORRA LA CLASE CONTACTUS
+							dibujarJuego();
 							$(".contactus_is_visible").addClass("home_is_visible");
 							$(".contactus_is_visible").removeClass("contactus_is_visible");
 						}
@@ -54,17 +51,14 @@ $(document).ready(function () {
 
 	// LOGIN DE USUARIOS
 	$("#id_btn_login").click(function (e) { 
+		$(".contactus_is_visible").addClass("home_is_visible");
+		$(".contactus_is_visible").removeClass("contactus_is_visible");
 		login();
+		dibujarJuego();
 	});
 
 	//LOGOUT DE USUARIOS
 	$("#id_btn_logout").click(function (e) { 
 		logout();
 	});
-
-
 });
-
-
-
-

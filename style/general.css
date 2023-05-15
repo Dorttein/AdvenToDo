@@ -1,13 +1,6 @@
 /*    GENERAL    */
 
-	/* TODO: AÑADIR COMPLETED A SUBTAREAS*/
-
-
 	/*  MENU  */
-		/*
-		https://freefrontend.com/css-menu/
-		https://codepen.io/tylerfowle/pen/vEqXMV
-		*/
 		*{
 			box-sizing: border-box;
 		}
@@ -196,7 +189,6 @@
 	}
 
 
-
 	  /* BOTON DEL MENÚ*/
 	  #cbox{
 		position: absolute;
@@ -311,40 +303,17 @@
 		left: -30px;
 	  }
 	
-	  /* 
-	   ? https://freefrontend.com/css-buttons/ Botones generales
-	   ? https://codepen.io/josetxu/pen/RwjMNzx Posible boton de importante
-	   ? https://codepen.io/thebabydino/pen/bGrLprB
-	  */
-	
-	
 	/*  HEADER  */
 	header{
 		text-align: center; 
-		/*TODO: texto alineado al centro en grande*/
-		/*TODO: ocultar texto al abrir el menu en tablet y movil*/
-		/*TODO: */
 	}
-	
-	
-	
-
-
-
 	
 	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
-		/*header{
-			text-align: left;
-			margin-left: 20%;
-		}*/
         .listas{
 			width: 100%;
 			height: 3em;
 		}
-        /* TODO: AJUSTAR TAMAÑO BOTON EN MOVIL */
-
-		
 	}
 	/* Small devices (portrait tablets and large phones, 600px and up) */
 	@media only screen and (min-width: 600px) {}

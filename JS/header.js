@@ -1,7 +1,16 @@
-import { equiparObjetos } from "/proyecto/JS/funciones.js";
+import {equiparObjetos, reescribir, dibujarJuego} from "/proyecto/JS/funciones.js";
 
 $(document).ready(function () {
-	// window.alert('ESTA PÁGINA ESTÁ EN DESARROLLO. SI SE ENCUENTRA ALGUN ERROR AVISAR AL SER SUPERIOR.DE MOMENTO LA PÁGINA SOLO SE VE BIEN EN ORDENADOR. NO ME HAGO RESPONSABLE DE CÓMO SE VE EN MOVIL (AUN)NO PONGAIS CONTRASEÑAS SENSIBLES. NO ME HAGO RESPONSABLE DE POSIBLES PROBLEMAS.PARA ELIMINAR UNA CUENTA CONTACTAD CON EL SER SUPERIOR');
+    // window.alert('ESTA PÁGINA ESTÁ EN DESARROLLO. SI SE ENCUENTRA ALGUN ERROR AVISAR AL SER SUPERIOR.DE MOMENTO LA PÁGINA SOLO SE VE BIEN EN ORDENADOR. NO ME HAGO RESPONSABLE DE CÓMO SE VE EN MOVIL (AUN)NO PONGAIS CONTRASEÑAS SENSIBLES. NO ME HAGO RESPONSABLE DE POSIBLES PROBLEMAS.PARA ELIMINAR UNA CUENTA CONTACTAD CON EL SER SUPERIOR');
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            reescribir();
+            dibujarJuego();
+        }, 150);
+    });
+
     $("body").addClass("home_is_visible");
 
     $(".button").on("click", function () {
@@ -25,9 +34,5 @@ $(document).ready(function () {
     });
 
     $("#id_enlace_tareas").on("click", equiparObjetos);
-
-
-    
-
+    $("#id_enlace_objetos").on("click", equiparObjetos);
 });
-

@@ -10,7 +10,6 @@
     $pdo->execute();
     $json = array();
     while ($row = $pdo->fetch(PDO::FETCH_ASSOC)) {
-        
         $params = array(
             ":ID_object" => $row['ID'],
             ":ID_user" => $user
@@ -39,8 +38,9 @@
         $objeto = array (
             'ID' => $row['ID'],'type' => $row['type'],
             'ATK'=>$row['ATK'],'DEF'=>$row['DEF'],
-            'HP'=>$row['HP'],'recoil'=>$row['heal'],
-            'locked'=>$isLocked, 'equiped'=>$isEquiped
+            'HP'=>$row['HP'],'recoil'=>$row['recoil'],
+            'heal'=>$row['heal'], 'locked'=>$isLocked,
+            'equiped'=>$isEquiped
         );
         $json[] = $objeto; 
     }
