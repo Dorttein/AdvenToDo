@@ -2,25 +2,24 @@
 
 	/*	DIV OSCURO PARA OCULTAR COSAS */
 	.fondoNegroLista, .fondoNegroTarea{
-		width: 1000%;
-		height: 1000em;
-		position: fixed;
-		background: rgba(0, 0, 0, 0.6);
-		margin-left: -100%;
-		margin-top: -100%;
-		z-index: 100;
-		display: none;
+        width: 200vw;
+        height: 200vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 100;
+        display: none;
 	}
 
 /* BOTON DE LAS FLECHAS */
-
 .flecha{
     width: 2.5em;
 }
 .flecha-back{
     transform: rotateZ(180deg);
 }
-
 .icon {
     cursor: pointer;
     position: relative;
@@ -74,9 +73,6 @@
 }
 
 /*	CAJAS DE LAS LISTAS. */
-/* TODO: EN TAMAÑOS GRANDES CORREGIR TAMAÑOS 
-   TODO: (¿JUEGO EN LA MISMA?)
-   TODO: EN PEQUEÑAS EL JUEGO ESTARÁ EN OTRA VENTANA. */
 .home{
     display: flex;
 }
@@ -87,7 +83,8 @@
     align-content: flex-start;
 }
 .lista{
-    background-color: grey;
+    color: white;
+    background-color: #133134;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -130,25 +127,20 @@
     /* transition: all .3s linear; */
     grid-area: 1/1/1/1;
 }
-
 .back-lista .icon{
     align-self: center;
 }
-
 .formulario_tarea{
     display: flex;
     flex-wrap: wrap;
     width: 110%;
 }
-
 .tarea{
     width: 95%;
 }
-
-
 .front-tarea, .back-tarea{
     justify-items: center;
-    background-color: grey;
+    background-color: #3f778d;
     padding: 2%;
     margin-bottom: 1%;
     margin-left: 1%;
@@ -157,7 +149,6 @@
     width: 100%;
     height: fit-content;
 }
-
 /* PARTE FRONTAL DE LAS TAREAS */
 .front-tarea{
     display: grid;
@@ -166,25 +157,21 @@
     justify-items: start;
     width: 80%;
 }
-
 .front-tarea .icon{
     grid-area: 1/1/-1/1;
     justify-self: start;
 }
-
 .input_text:focus ~ .lab_input_text, .input_text:valid ~ .lab_input_text{
     top: -0.9em;
 }
-
 .label_comp{
     grid-area: 1/2/2/3;
     transform: translate(60%, 60%);
 }
-
 .div_name{
     position: absolute;
     grid-area: 1/3/2/6;
-    transform: translate(15%, 50%);
+    transform: translate(15%, 75%);
 }
 .front-tarea .group .lab_input_text{
 	font-size: 1.1em;
@@ -199,7 +186,6 @@
 .front-tarea .group .bar{
     width: 140%;
 }
-
 .input_reward{
     border-radius: 30%;
     width: 3em;
@@ -213,7 +199,6 @@
     margin-bottom: 5%;
     align-self: flex-end;
 }
-
 ::-webkit-calendar-picker-indicator{
     padding: 5px;
     cursor: pointer;
@@ -221,17 +206,14 @@
 .input_creacion, .input_limite{
     background-color: #0080ff;
     padding: 10%;
-    /* transform: translate(-50%, 0%); */
     top: 50%;
     left: 50%;
     font-family: "Roboto Mono",monospace;
     color: #ffffff;
-    font-size: 0.8em;
     border: none;
     outline: none;
     border-radius: 5px;
 }
-
 .front-tarea .input_limite{
     grid-area: 2/10/2/12;
 }
@@ -239,26 +221,22 @@
     grid-area: 1/10/1/13;
 }
 .label_importante{
-    grid-area: 2/-1/2/-1;
-    transform: translate(-80%, 0%);
+    grid-area: 2/13/2/-1;
 }
-
 /* PARTE TRASERA DE LAS TAREAS */
-
 .back-tarea{
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-items: start;
     width: 120%;
+    padding-bottom: 6%;
 }
-
 .back-tarea .icon{
     grid-area: 1/1/1/1;
     transform: translate(0%, -20%);
 }
-
 .back-tarea .div_name{
-    grid-area: 1/2/1/5;
+    grid-area: 1/2/1/4;
     transform: translate(0%, 100%);
 }
 .back-tarea .group .lab_input_text{
@@ -274,13 +252,14 @@
 .back-tarea .group .bar{
     width: 240%;
 }
-
+.back-tarea .div_details .bar{
+    width: 270%;
+}
 .back-tarea .label_comp{
     grid-area: 1/-1/1/-1;
     transform: translate(-150%, 100%)
     scale(150%);
 }
-
 .back-tarea .div_details{
     grid-area: 2/1/4/3;
     align-self: start;
@@ -294,60 +273,49 @@
     height: 45vh;
     background-color: #2020203a;
 }
-
 .back-tarea .label_importante{
     grid-area: 2/5/3/5;
     align-self: start;
-    transform: translate(0%, 110%);
+    transform: translate(150%, 150%);
 }
-
 .back-tarea label[for=input_reward]{
     grid-area: 2/6/2/6;
     align-self: start;
     transform: translate(0%, 50%);
 }
-
 .back-tarea .input_reward{
     grid-area: 2/6/3/6;
     align-self: start;
     transform: translate(0%, 150%);
 
 }
-
 /* AQUÍ IRA LAS SUBTAREAS Y REPETIR */
 .back-tarea .div_subtareas{
     grid-area: 3/5/4/7;
     background-color: black;
     transform: translate(-30%, 0%);
 }
-
 .back-tarea .div_repetir{
     grid-area: 5/1/5/-1;
     background-color: black;
     transform: translate(4%, -100%);
 }
-
 .back-tarea label[for=input_creacion]{
-    grid-area: 5/2/6/4;
-    transform: translate(15%, 50%);
+    grid-area: 3/5/3/5;
+    transform: translate(15%, 150%);
 }
-
 .back-tarea .input_creacion{
-    grid-area: 5/2/6/3;
-    transform: translate(0%, 50%);
+    grid-area: 3/5/3/5;
+    transform: translate(0%, 120%);
 }
-
 .back-tarea label[for=input_limite]{
-    grid-area: 5/5/6/6;
+    grid-area: 3/6/3/6;
+    transform: translate(50%, 150%);
 }
-
 .back-tarea .input_limite{
-    grid-area: 5/5/6/6;
-    transform: translate(0%, 50%);
-
+    grid-area: 3/6/3/6;
+    transform: translate(15%, 120%);
 }
-
-
 /* BOTON PARA ATRIBUTO IMPORTANTE */
 input[type=checkbox] {
     display: none;
@@ -356,29 +324,20 @@ input[type=checkbox] {
     position: relative;
     width: 2em;
     height: 2em;
-    top: 45%;
-    left: 10%;
-    transform: translate(-50%, -100%);
+    left: 100%;
+    transform: translate(-100%, -100%);
 }
 .circle:hover {
     cursor: pointer;
 }
 @keyframes circle__in {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-    }16% {
-        transform: translate(-50%, -50%) scale(0.95, 1.05);
-    }33% {
-        transform: translate(-50%, -50%) scale(1);
-    }50% {
-        transform: translate(-50%, -50%) scale(1.05, 0.95);
-    }66% {
-        transform: translate(-50%, -50%) scale(1);
-    }83% {
-        transform: translate(-50%, -50%) scale(0.98, 1.02);
-    }100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
+    0% {transform: translate(-100%, -100%) scale(1);
+    }16% {transform: translate(-100%, -100%) scale(0.95, 1.05);
+    }33% {transform: translate(-100%, -100%) scale(1);
+    }50% {transform: translate(-100%, -100%) scale(1.05, 0.95);
+    }66% {transform: translate(-100%, -100%) scale(1);
+    }83% {transform: translate(-100%, -100%) scale(0.98, 1.02);
+    }100% {transform: translate(-100%, -100%) scale(1);}
 }
 input:checked + .circle {
     animation-name: circle__in;
@@ -401,13 +360,9 @@ input:checked + .circle {
     background: yellow;
 }
 @keyframes circle--inner__in {
-    0% {
-        transform: scale(0);
-    }80% {
-        transform: scale(1.02);
-    }100% {
-        transform: scale(1);
-    }
+    0% {transform: scale(0);
+    }80% {transform: scale(1.02);
+    }100% {transform: scale(1);}
 }
 input:checked + .circle .circle--inner {
     transform-origin: 50% -20%;
@@ -416,15 +371,10 @@ input:checked + .circle .circle--inner {
     animation-timing-function: cubic-bezier(0.85, 0, 0.2, 1);
 }
 @keyframes circle--inner__out {
-    0% {
-        transform: scale(1);
-    }80% {
-        transform: scale(0.19);
-    }99% {
-        transform: scale(0.21);
-    }100% {
-        transform: scale(0);
-    }
+    0% {transform: scale(1);
+    }80% {transform: scale(0.19);
+    }99% {transform: scale(0.21);
+    }100% {transform: scale(0);}
 }
 .circle--inner {
     animation-name: circle--inner__out;
@@ -447,7 +397,6 @@ input:checked + .circle .circle--inner {
 .circle--inner__5 {
     transform-origin: 75% -30%;
 }
-
 /* BOTON COMPLETADO */
 #id_span_comp{
     display: inline-block;
@@ -484,10 +433,6 @@ input:checked + .circle .circle--inner {
 .label_comp input:checked ~ #id_span_comp:after{
     opacity: 1;
 }
-
-
-
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -499,12 +444,10 @@ input:checked + .circle .circle--inner {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
-  
 .btn:hover {
     background-color: black;
     color: #fff;
 }
-  
 .btn__icon {
     font-size: 24px;
     font-weight: bold;
@@ -513,7 +456,6 @@ input:checked + .circle .circle--inner {
 .btn__icon_back{
     transform: rotate(45deg);
 }
-
 /* BOTON PARA ELIMINAR TAREAS */
 .delete_tarea, .delete_lista{
     position: relative;
@@ -551,7 +493,6 @@ input:checked + .circle .circle--inner {
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-  
 .confirm::before {
     position: absolute;
     content: "";
@@ -563,28 +504,21 @@ input:checked + .circle .circle--inner {
     transform: translate(-50%) rotate(45deg);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-  
 .delete_tarea:hover .confirm, .delete_lista:hover .confirm{
     top: 115%;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
-  
 svg:hover span, svg:hover .confirm{
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
-  
 .delete_tarea:hover, .delete_tarea:hover .confirm,
 .delete_tarea:hover .confirm::before, .delete_lista:hover, .delete_lista:hover .confirm,
 .delete_lista:hover .confirm::before{
     background: linear-gradient(320deg, rgb(3, 77, 146), rgb(0, 60, 255));
     color: #ffffff;
 }
-
-
-
-
 #id_div_nueva_lista, .div_nueva_tarea{
     width: 100%;
     margin-top: 5%;
@@ -597,11 +531,9 @@ svg:hover span, svg:hover .confirm{
     margin-top: 2%;
     margin-bottom: 2%;
 }
-
 /* ZONA DE AÑADIR NUEVA LISTA */
-
 #id_new_lista, .new_tarea {
-    background-color: grey;
+    background-color: #276e90;
     position: fixed;
     display: none;
     transform: translate(-50%, 100%);
@@ -612,8 +544,8 @@ svg:hover span, svg:hover .confirm{
     height: fit-content;
     width: 100vh;
     font-size: 1.5em;
+    justify-content: space-evenly;
 }
-
 .new_tarea{
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: 1fr 1fr;
@@ -622,16 +554,14 @@ svg:hover span, svg:hover .confirm{
     width: 100%;
     transform: translate(-5%, 0%);
 }
-
 .new_tarea .circle {
-    transform: translate(-150%, -100%);
+    left: 0%;
+    top: 50%;
 }
-
 .new_tarea .icon{
     grid-area: 1/1/-1/1;
     justify-self: start;
 }
-
 .new_tarea .group .lab_input_text{
 	font-size: 1.1em;
     transform: translate(-60%, -60%);
@@ -647,7 +577,6 @@ svg:hover span, svg:hover .confirm{
     width: 140%;
     right: 28%;
 }
-
 .new_tarea label[for=input_reward]{
     grid-area: 1/7/1/8;
     margin-bottom: 5%;
@@ -656,19 +585,17 @@ svg:hover span, svg:hover .confirm{
 .new_tarea .input_reward{
     grid-area: 2/7/2/8;
 }
-
 .new_tarea .input_limite{
     grid-area: 2/9/2/11;
 }
 .new_tarea label[for=input_limite]{
     grid-area: 1/9/1/12;
+    margin-top: 5%;
 }
-
 #formulario_new_lista .div_name_lista{
     margin-top: -5%;
     margin-left: 15%;
 }
-
 #id_new_lista #id_div_nueva_lista, .new_tarea #id_div_nueva_tarea{
     margin-left: 0%;
     margin-top: 0%;
@@ -676,12 +603,13 @@ svg:hover span, svg:hover .confirm{
     width: 2em;
     height: 2em;
 }
+.new_tarea #id_div_nueva_tarea {
+    transform: translate(50%, 75%);
+}
 #id_new_lista #id_div_nueva_lista .btn, .new_tarea #id_div_nueva_tarea .btn{
     width: 2em;
     height: 2em;
 }
-
-
 #id_btn_lista, .boton_new_tarea{
     background-color: #4c4eaf;
     color: white;
@@ -698,13 +626,10 @@ svg:hover span, svg:hover .confirm{
 #id_btn_lista:hover, .boton_new_tarea:hover{
     background-color: #433e8e;
 }
-
 .input_name_lista:focus ~ .lab_input_text, .input_name_lista:valid ~ .lab_input_text{
     top: 0em;
     font-size: 0.7em;
-    color: #0e94f4;
 }
-
 /* BOTON DE BORRAR LISTAS */
 .boton-cerrar {
     align-self: flex-end;
@@ -724,52 +649,261 @@ svg:hover span, svg:hover .confirm{
 .boton-eliminar:hover {
     background-color: #c82333;
 }
-
-
-
-
 #id_juego{
     width: 55%;
     height: 80vh;
     /* background-color:chocolate; */
     margin-right: 2%;
 }
-
-
-
-
-    @media only screen and (max-width: 750px) {
-        #id_new_lista, .new_tarea{
-            font-size: 1em;
-        }
-
-        #id_new_lista #id_div_nueva_lista, #id_new_lista #id_div_nueva_lista{
-            transform: translate(0%, 0%);
-        }    
-        #id_btn_lista, .boton_new_tarea{
-            padding: 12px 12px;
-        }
+@media only screen and (min-width: 2500px) {
+    .back-tarea {
+        margin-left: 6%;
     }
-	/* Small devices (portrait tablets and large phones, 600px and up) */
-	@media only screen and (max-width: 750px) {
-        #id_contenido_principal {
-            width: 100%;
-        }
-
-        #id_new_lista, .new_tarea{
-            width: 95%;
-            transform: translate(-5%, 0%);
-        }
+}
+@media only screen and (max-width: 1200px) {
+    .new_tarea{
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr;
     }
-	/* Medium devices (landscape tablets, 768px and up) */
-	@media only screen and (min-width: 768px) {
-
+    .new_tarea .div_name {
+        transform: translate(0%, 75%);
     }
-	/* Large devices (laptops/desktops, 992px and up) */
-	@media only screen and (min-width: 992px) {
-
+    .new_tarea label[for=input_reward]{
+        grid-area: 1/7/1/7;
     }
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1200px) {
-        
+    .new_tarea .input_reward{
+        grid-area: 2/7/2/7;
     }
+    .new_tarea .label_importante {
+        grid-area: 4/7/4/7;
+    }
+    .new_tarea .input_limite{
+        grid-area: 4/3/4/3;
+    }
+    .new_tarea label[for=input_limite]{
+        grid-area: 3/3/3/5;
+    }
+    .boton_new_tarea {
+        grid-area: 3/-1/3/-1;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .front-tarea .label_comp {
+        transform: translate(20%, 60%);
+    }
+    .back-tarea .div_name {
+        transform: translate(-20%, 100%);
+    }
+    .back-tarea .group .input_details {
+        width: 180%;
+    }
+    .back-tarea .label_importante {
+        transform: translate(25%, 175%);
+    }
+    .back-tarea label[for=input_creacion] {
+        grid-area: 3/5/3/7;
+    transform: translate(-20%, 50%);
+    }
+    .back-tarea .input_creacion {
+        transform: translate(-25%, 120%);
+    }
+    .back-tarea label[for=input_limite] {
+        transform: translate(20%, 50%);
+    }
+    .back-tarea .input_limite {
+        transform: translate(5%, 120%);
+    }
+}
+@media only screen and (max-width: 750px) {
+    #id_contenido_principal {
+        width: 100%;
+    }
+    #id_new_lista, .new_tarea{
+        width: 95%;
+        transform: translate(-5%, 0%);
+    }
+    .new_tarea{
+        font-size: 1em;
+    }
+    #id_new_lista, .new_tarea{
+        font-size: 1em;
+    }
+    #id_new_lista #id_div_nueva_lista, #id_new_lista #id_div_nueva_lista{
+        transform: translate(0%, 0%);
+    }    
+    #id_btn_lista, .boton_new_tarea{
+        padding: 12px 12px;
+    }
+    .back-tarea .group .input_details {
+        width: 180%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .new_tarea{
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        transform: translate(-15%, 0%);
+    }
+    .new_tarea #id_div_nueva_tarea {
+        transform: translate(0%, 0%);
+    }
+    .new_tarea .div_name {
+        grid-area: 1/4/1/-1;
+        transform: translate(10%, 75%);
+    }
+    .new_tarea .group .lab_input_text {
+        transform: translate(0%, -70%);
+    }
+    .new_tarea label[for=input_reward]{
+        grid-area: 2/6/2/6;
+        transform: translate(-20%, 100%);
+    }
+    .new_tarea .input_reward{
+        grid-area: 3/6/3/6;
+        transform: translate(0%, 100%);
+    }
+    .new_tarea .input_limite{
+        grid-area: 6/4/6/4;
+    }
+    .new_tarea label[for=input_limite]{
+        grid-area: 5/5/5/-1;
+    }
+    .new_tarea .label_importante {
+        grid-area: 8/7/8/7;
+        transform: translate(-75%, 0%);
+    }
+    .boton_new_tarea {
+        grid-area: 9/-1/9/-1;
+        transform: translate(-165%, 0%);
+    }
+    /* PARTE DELANTERA DE TAREAS EN MOVIL */
+    .front-tarea{
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        width: 72%;
+    }
+    .front-tarea .label_comp {
+        grid-area: 1/1/1/1;
+        transform: translate(60%, 60%);
+    }
+    .front-tarea #id_div_nueva_tarea {
+        transform: translate(0%, 0%);
+    }
+    .front-tarea .div_name {
+        grid-area: 1/2/1/-1;
+        transform: translate(10%, 75%);
+    }
+    .front-tarea .group .input_name {
+        width: 90%;
+    }
+    .front-tarea .group .bar {
+        width: 90%;
+    }
+    .front-tarea .group .lab_input_text {
+        transform: translate(0%, -60%);
+    }
+    .front-tarea label[for=input_reward]{
+        grid-area: 2/4/2/5;
+        transform: translate(-20%, 100%);
+    }
+    .front-tarea .input_reward{
+        grid-area: 3/4/3/4;
+        transform: translate(0%, 100%);
+    }
+    .front-tarea .input_limite{
+        grid-area: 6/3/6/3;
+    }
+    .front-tarea label[for=input_limite]{
+        grid-area: 5/4/5/-1;
+    }
+    .front-tarea .label_importante {
+        grid-area: 8/4/8/4;
+        transform: translate(0%, 0%);
+    }
+    /* BOTON DE ELIMINAR EN MOVIL */
+    .delete_tarea, .delete_lista {
+        width: 20%;
+    }
+    .delete_lista {
+        transform: translate(-200%, 0%) scale(2);
+    }
+    .delete_tarea{
+        margin-top: 42.5%;
+        margin-left: -23.5%;
+    }    
+    /* PARTE TRASERA DE LAS TAREAS EN MOVIL */
+    .back-tarea{
+        margin-left: -7%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+    .back-tarea .div_name{
+        grid-area: 1/2/1/2;
+        transform: translate(-30%, 120%);
+    }
+    .back-tarea .group .input_name {
+        width: 300%;
+    }
+    .back-tarea .group .bar {
+        width: 300%;
+    }
+    .back-tarea .group .lab_input_text {
+        transform: translate(0%, -60%);
+    }
+    .back-tarea .label_comp {
+        grid-area: 1/-1/1/-1;
+        transform: translate(-50%, 60%);
+    }
+    .back-tarea .div_details {
+        grid-area: 2/1/4/3;
+    }
+    .back-tarea .group .input_details {
+        width: 207%;
+        height: 35vh;
+    }
+    .back-tarea .div_details .bar{
+        width: 207%;
+    }
+    .back-tarea label[for=input_reward]{
+        grid-area: 4/2/4/2;
+        transform: translate(-30%, 100%);
+    }
+    .back-tarea .input_reward{
+        grid-area: 4/2/4/2;
+        transform: translate(-20%, 200%);
+    }
+    .back-tarea label[for=input_creacion]{
+        grid-area: 5/2/5/4;
+        transform: translate(-35%, 50%);
+    }
+    .back-tarea .input_creacion{
+        grid-area: 5/2/5/2;
+        transform: translate(-37.5%, 120%);
+    }
+    .back-tarea label[for=input_limite]{
+        grid-area: 5/4/5/6;
+        transform: translate(-40%, 50%);
+    }
+    .back-tarea .input_limite{
+        grid-area: 5/3/5/3;
+        transform: translate(22.5%, 120%);
+    }
+    .back-tarea .label_importante {
+        grid-area: 4/4/4/4;
+        transform: translate(0%, 200%);
+    }
+}
+@media only screen and (max-width: 350px) {
+    .delete_tarea, .delete_tarea {
+        font-size: 0.7em;
+    }
+    .front-tarea .input_limite {
+        grid-area: 6/1/6/1;
+    }
+    .new_tarea .div_name {
+        transform: translate(30%, 75%);
+    }
+    .back-tarea{
+        margin-left: -12%;
+    }
+}

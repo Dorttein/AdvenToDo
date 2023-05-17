@@ -10,18 +10,20 @@ $(document).ready(function () {
             dibujarJuego();
         }, 150);
     });
-
     $("body").addClass("home_is_visible");
-
     $(".button").on("click", function () {
         $("body").toggleClass("nav_is_visible");
+        if($("#cbox").prop("checked")){
+            $("#cbox").prop("checked", false);  
+        }else{
+            $("#cbox").prop("checked", true);  
+        }
     });
-
     function removeClasses() {
-    $(".menu ul li").each(function () {
-        var link = $(this).find("a").attr("href");
-        $("body").removeClass(link);
-    });
+        $(".menu ul li").each(function () {
+            var link = $(this).find("a").attr("href");
+            $("body").removeClass(link);
+        });
     }
     $(".menu a").on("click", function (e) {
         e.preventDefault();
@@ -29,10 +31,10 @@ $(document).ready(function () {
         var link = $(this).attr("href");
         $("body").addClass(link);
         $("body").removeClass("nav_is_visible");
-
         $("#cbox").prop("checked", false);        
     });
-
     $("#id_enlace_tareas").on("click", equiparObjetos);
     $("#id_enlace_objetos").on("click", equiparObjetos);
+
+    
 });

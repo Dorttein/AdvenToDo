@@ -3,18 +3,21 @@
     max-width: 400px;
     padding: 20px;
     text-align: center;
-  }
+}
   
 .registro form {
     display: flex;
     flex-direction: column;
-  }
+    background: #26b0d39d;
+    padding: 5%;
+    border-radius: 15px;
+}
   
 .registro label {
     display: block;
     margin-bottom: 10px;
     text-align: left;
-  }
+}
 
 .registro input[type="text"],
 .registro input[type="password"] {
@@ -23,18 +26,20 @@
     font-size: 16px;
     padding: 10px;
     margin-bottom: 20px;
+    background-color: #e5e1e1;
 }
 
 #id_btn_registro {
-    background-color: #4CAF50;
+    background-color: #3e8e41;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: black;
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
     transition: background-color 0.3s ease;
 }
 #id_btn_registro:hover {
-    background-color: #3e8e41;
+    background-color: #1d441e;
+    color: white;
 }

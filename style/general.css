@@ -10,9 +10,11 @@
 		}
 		body { /* BODY GENERAL */
 			height: 100%;
-			color: #f5f0f0;
+			width: 100%;
+			color: black;
 			position: relative;
-			background-image: url(https://localhost/proyecto/photo/fondoProvisional.jpg);
+			background-color: #3f778d;
+			/* background-image: url(https://localhost/proyecto/photo/fondoProvisional.jpg); */
 			transform: translateX(0);
 			transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		}
@@ -34,13 +36,17 @@
 			font-size: 18px;
 			transform: translateX(120%); /* CON ESTO ME ASEGURO QUE SE ALEJAN LAS PANTALLAS QUE NO USO */
 			transition: color 1s ease 1s, background 0.5s ease 1s, transform 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
-			background: #002961;
+			/* background: #002961; */
 			width: 100%;
 		}
 		.menu ul { /* LISTA ENTERA */
 			margin: 0;
+			margin-top: -6%;
 			padding: 30px 0;
 			list-style: none;
+			height: 100vw;
+			width: 75%;
+			background-color: #133134;
 		}
 		.menu ul li { /* CADA UNO DE LA LISTA */
 			margin: 0;
@@ -58,26 +64,12 @@
 			color: black;
 			background: #9DC2F6;
 		}
-		.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home {
+		.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home, .howTo_is_visible .howTo{
 			transform: translateX(0);
 		}
-		.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home {
+		.contactus_is_visible .contactus, .clients_is_visible .clients, .aboutus_is_visible .aboutus, .home_is_visible .home, .howTo_is_visible .howTo{
 			z-index: 10;
 		}
-		/* ? ACCESO A LOS BLOQUES INDIVIDUALES
-		.home_is_visible .home {
-			background-color: #002961;
-		}
-		.clients_is_visible .clients {
-			background-color: antiquewhite;
-		}
-		.aboutus_is_visible .aboutus{
-			background-color:brown;
-		}
-		.contactus_is_visible .contactus {
-			background-color: cornflowerblue;
-		} 
-		*/
 		body.nav_is_visible { /* ANIMACIÓN DE ABRIR EL MENÚ */
 			transform: translateX(300px);
 		}
@@ -91,7 +83,11 @@
 		display:flex;
 		align-items: center;
 		justify-content: center;
-	  }
+	}
+	#id_li_form .group{
+		margin-left: 32%;
+    	width: 100%;
+	}
 	/* INPUT TEXT GENERAL */
 	.group{ /* CONTENEDOR DE CADA INPUT */
 		margin-left: 5%;
@@ -125,7 +121,7 @@
 	.input_text:focus ~ .lab_input_text, .input_text:valid ~ .lab_input_text{
 		top: -0.5em;
 		font-size: 0.9em;
-		color: #0e94f4;
+		color: #000f1a;
 	}
 	.bar{ /* BARRA AZUL */
 		position: relative;
@@ -165,7 +161,7 @@
 		animation: input-focus 0.5s ease;
 	}
 	#id_user_nf{
-		margin-left: 6%;
+		margin-left: 36%;
 		color: red;
 	}
 	@keyframes input-focus{
@@ -281,6 +277,7 @@
 		border-radius: 8px;
 		z-index: 1;
 		overflow: hidden;
+		left: 30%;
 	  }
 	  #id_btn_login:before{
 		content: "";
@@ -308,18 +305,32 @@
 		text-align: center; 
 	}
 	
-	/* Extra small devices (phones, 600px and down) */
 	@media only screen and (max-width: 600px) {
         .listas{
 			width: 100%;
 			height: 3em;
 		}
+		.menu ul{
+			height: 300vh;
+		}
 	}
-	/* Small devices (portrait tablets and large phones, 600px and up) */
-	@media only screen and (min-width: 600px) {}
-	/* Medium devices (landscape tablets, 768px and up) */
-	@media only screen and (min-width: 768px) {}
-	/* Large devices (laptops/desktops, 992px and up) */
-	@media only screen and (min-width: 992px) {}
-	/* Extra large devices (large laptops and desktops, 1200px and up) */
-	@media only screen and (min-width: 1200px) {}
+	@media only screen and (max-width: 900px) {
+		.menu ul{
+			height: 210vw;
+		}
+	}
+	@media only screen and (min-width: 1200px) {
+		.menu ul{
+			height: 180vw;
+		}
+	}
+	@media only screen and (max-width: 1500px) {
+		.menu ul{
+			height: 160vw;
+		}
+	}
+	@media only screen and (max-width: 2500px) {
+		.menu ul{
+			height: 170vw;
+		}
+	}

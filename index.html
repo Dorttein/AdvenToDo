@@ -5,16 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdvenToDo</title>
+	
+	<link rel="shortcut icon" href="photo/logo.png">
 
     <script src="JS/lib/jquery-3.6.3.js"></script>
-	<!-- EL LOGIN DEBE CARGARSE ANTES QUE EL HEADER -->
-    <script src="JS/login.js" type="module"></script>
-    <script src="JS/header.js" type="module"></script>
-	
-    <script src="JS/listas.js" type="module"></script>
-
-    <script src="JS/combate.js" type="module"></script>
-    <script src="JS/objetos.js" type="module"></script>
+    <script src="JS/principal.js" type="module"></script>
 	
 	<link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/registro.css">
@@ -44,6 +39,9 @@
 				<!-- ESTO SOLO APARECE SI NO HAS INICIADO SESION 
 					<li class="reg"><a href='contactus_is_visible'>Registrarse</a></li> 
 				-->
+				<li>
+					<a href='howTo_is_visible' id="id_enlace_howTo">Como usar</a>
+				</li>
 				<li id="id_li_form">
 					<form method="post" id="id_form_login">
 						<br>
@@ -128,5 +126,44 @@
 			</form>
 		</div>
 	</div>
+
+	<div class='content howTo'>        
+		<div class="explicacion">
+			<h2>Bienvenido a AdvenToDo</h2>
+			<p>
+				Esta página está desarrollada por Sergio Gómez Muñoz como TFG del grado de Desarrollo de Aplicaciones
+				WEB, y esto es una mini-guia del funcionamiento de la página web.
+			</p>
+			<p>
+				En esta página podrás crear y borrar tareas que hayas completado en tu día a día y obtener "acciones"
+				para derrotar enemigos y conseguir interesantes recompensas.
+			</p>
+			<p>
+				Para poder crear tareas es necesario registrarse e iniciar sesión. Una vez con la sesión iniciada,
+				aparecen dos listas permanentes, "Mi Día" y "Tareas", pero se pueden crear más desde el botón inferior.
+				para poder crear tareas, es necesario abrir la lista en la que se quiere crear y pulsar en el botón con
+				el símbolo "+".
+			</p>
+			<p>
+				Una vez creada la tarea, se puede añadir o modificar información sobre la misma. Al completar la
+				tarea, se sumarán los puntos de acción que hayamos asignado a la tarea a nuestros puntos de accion.
+				Para borrar las tareas basta con pulsar en el botón de "Eliminar" a la derecha de cada tarea.
+			</p>
+			<p>
+				Para poder derrotar a tus peores enemigos necesitarás acciones. Una vez que las tengas, podrás
+				decidir entre atacar (Realiza un extra de daño), defender (recibirás menos daño) y curar (Regenerarás
+				un pequeño extra de vida). Por cada vez que hagas daño al enemigo bajará en 1 el contador de tus
+				acciones. Al matar a tu enemigo, tendrás una probabilidad de desbloquear un nuevo objeto con el que
+				te harás más fuerte.
+				No te preocupes si el enemigo acaba contigo, reaparecerás con toda la vida y podrás seguir enfrentandote
+				a él.
+			</p>
+			<p>
+				Para equipar los objetos que tengas desbloqueados, dirígete a la ventana de "Objetos" y elije el que
+				más te guste. Solo puedes tener equipado un objeto de cada a la vez.
+			</p>
+		</div>
+	</div>
+
 </body>
 </html>

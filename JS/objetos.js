@@ -27,13 +27,8 @@ $(document).ready(function () {
                     }
                     $(this).prev().removeClass("equiped");
                 }
-            }else{
-                $(this).prev().addClass("equiped");
-            }
-        }else{
-            console.log("Bloqueado");
+            }else{$(this).prev().addClass("equiped");}
         }
-        
         for(let i=1;i<11;i++){
             if(i<11){
                 if(!$(`.arma${i}`).prev().hasClass("equiped")){wpEquiped=i;}
